@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 1 – Basics | SharadSAT Labs</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">Sharad<span>SAT</span></div>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../labs.html" style="color: var(--accent)">Labs</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="section">
+  <h1 class="section-title">Lab 1 – HTTP & Login Basics</h1>
+  <p style="max-width: 800px; margin: 0 auto; text-align:center; color: var(--text-soft);">
+    Dummy company: <strong>acme-internal.lab</strong>  
+    Your goal: understand how a basic login form works and why relying only on
+    client-side validation is insecure.
+  </p>
+</section>
+
+<section class="section dark">
+  <h2 class="section-title">Scenario</h2>
+  <p style="max-width: 800px; margin: 0 auto; color: var(--text-soft);">
+    The internal helpdesk of <code>acme-internal.lab</code> has a simple login form.
+    A developer left a hint in the HTML source.  
+    Your task is:
+  </p>
+  <ul style="max-width: 800px; margin: 15px auto; color: var(--text-soft);">
+    <li>Inspect the page source (Ctrl+U / right-click → View page source).</li>
+    <li>Find the dummy credentials.</li>
+    <li>Log in using the correct username & password.</li>
+    <li>Get the flag in the format <code>SATLAB{...}</code>.</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2 class="section-title">Dummy Login</h2>
+
+  <div class="highlight-card" style="max-width:400px; margin: 0 auto; text-align:left;">
+    <!-- HINT left for the user -->
+    <!-- Developer note:
+         For testing only:
+         username: analyst
+         password: acme123
+         Flag after login: SATLAB{BASIC_HTTP_DONE}
+    -->
+    <label>Username</label>
+    <input id="lab1-username" type="text" style="width:100%; padding:8px; margin:6px 0; border-radius:6px; border:1px solid var(--card-border); background:#020617; color:#e5e5e5;">
+    <label>Password</label>
+    <input id="lab1-password" type="password" style="width:100%; padding:8px; margin:6px 0; border-radius:6px; border:1px solid var(--card-border); background:#020617; color:#e5e5e5;">
+    <button onclick="lab1Login()" class="btn primary" style="margin-top:10px;">Login</button>
+    <p id="lab1-message" style="margin-top:10px;"></p>
+  </div>
+</section>
+
+<footer class="footer">
+  © <span id="year"></span> SharadSAT Labs – Lab 1
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  function lab1Login() {
+    const u = document.getElementById("lab1-username").value.trim();
+    const p = document.getElementById("lab1-password").value.trim();
+    const msg = document.getElementById("lab1-message");
+
+    if (u === "analyst" && p === "acme123") {
+      msg.innerHTML = "✅ Login successful!<br>Here is your flag:<br><code>SATLAB{BASIC_HTTP_DONE}</code>";
+      msg.style.color = "var(--accent)";
+    } else {
+      msg.textContent = "❌ Invalid credentials. Check the page source for hints.";
+      msg.style.color = "#f97373";
+    }
+  }
+</script>
+
+</body>
+</html>
