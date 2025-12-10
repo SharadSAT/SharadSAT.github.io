@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SharadSAT Labs | Beginner to Advanced</title>
+  <title>SharadSAT Cyber Labs</title>
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
@@ -21,89 +21,108 @@
   </nav>
 </header>
 
+<!-- Top Section -->
 <section class="section">
   <h1 class="section-title">SharadSAT Cyber Labs</h1>
   <p style="max-width: 900px; margin: 0 auto; text-align:center; color: var(--text-soft); font-size:1.05rem;">
-    A curated series of hands-on labs based on <strong>OWASP Top 10</strong> and real-world attack scenarios.
-    Labs are organized from <span class="badge basic">Beginner</span> to
-    <span class="badge intermediate">Intermediate</span> to
-    <span class="badge advanced">Advanced</span> to help you grow progressively.
+    Hands-on labs designed for security learners.  
+    Progress from <span class="badge basic">Beginner</span> → 
+    <span class="badge intermediate">Intermediate</span> → 
+    <span class="badge advanced">Advanced</span>
+    and learn real-world vulnerabilities based on the <strong>OWASP Top 10</strong>.
   </p>
 </section>
 
-<!-- Series 1: Fundamentals -->
+<!-- Series 1 -->
 <section class="section dark">
   <h2 class="section-title">Series 1 – Web & HTTP Fundamentals</h2>
+
   <div class="highlight-grid">
 
+    <!-- LAB 1 -->
     <div class="highlight-card">
       <h3>Lab 1 – HTTP & Login Basics</h3>
-      <p>Understand requests, responses, and simple client-side validation weaknesses.</p>
+      <p>Understand HTTP requests, responses, and simple validation bypass techniques.</p>
       <p><span class="badge basic">Beginner</span></p>
       <a href="labs/lab1-basics.html" class="btn primary" style="margin-top:12px;">Start Lab 1</a>
     </div>
 
+    <!-- LAB 2 -->
     <div class="highlight-card">
-      <h3>Lab 2 – SQL Injection Intro</h3>
-      <p>Login bypass using classic SQL injection payloads, fully simulated and safe.</p>
+      <h3>Lab 2 – SQL Injection (Dummy Portal)</h3>
+      <p>Learn how weak login queries can be exploited using SQL injection techniques.</p>
       <p><span class="badge intermediate">Intermediate</span></p>
       <a href="labs/lab2-sqli.html" class="btn primary" style="margin-top:12px;">Start Lab 2</a>
     </div>
 
+    <!-- LAB 3 -->
     <div class="highlight-card">
-      <h3>Lab 3 – XSS Playground (Coming Soon)</h3>
-      <p>Reflected XSS via unsanitized input and unsafe output rendering.</p>
+      <h3>Lab 3 – Reflected XSS Playground</h3>
+      <p>Experiment with reflected input and observe how unescaped output triggers XSS.</p>
       <p><span class="badge advanced">Advanced</span></p>
-      <button class="btn secondary" style="margin-top:12px;" disabled>Coming Soon</button>
+      <a href="labs/lab3-xss.html" class="btn primary" style="margin-top:12px;">Start Lab 3</a>
     </div>
 
   </div>
 </section>
 
-<!-- OWASP Top 10 overview block (for future labs) -->
+<!-- OWASP Future Labs -->
 <section class="section">
-  <h2 class="section-title">Planned OWASP Top 10 Series</h2>
+  <h2 class="section-title">Upcoming OWASP-Based Labs</h2>
+
   <div class="highlight-grid">
 
     <div class="highlight-card">
       <h3>A01 – Broken Access Control</h3>
-      <p>Planned labs: IDOR, force browsing, privilege escalation, role misconfigurations.</p>
-      <p><span class="badge basic">Beginner</span> · <span class="badge intermediate">Intermediate</span> · <span class="badge advanced">Advanced</span></p>
+      <p>IDOR, forced browsing, privilege escalation, access bypass attacks.</p>
+      <p>
+        <span class="badge basic">Beginner</span> ·
+        <span class="badge intermediate">Intermediate</span> ·
+        <span class="badge advanced">Advanced</span>
+      </p>
     </div>
 
     <div class="highlight-card">
-      <h3>A03 – Injection</h3>
-      <p>Planned labs: SQLi (union / blind), command injection simulation, NoSQL injection theory.</p>
-      <p><span class="badge basic">Beginner</span> · <span class="badge intermediate">Intermediate</span> · <span class="badge advanced">Advanced</span></p>
+      <h3>A03 – Injection Attacks</h3>
+      <p>SQLi (union/blind), command injection, NoSQL injection simulations.</p>
+      <p>
+        <span class="badge basic">Beginner</span> ·
+        <span class="badge intermediate">Intermediate</span> ·
+        <span class="badge advanced">Advanced</span>
+      </p>
     </div>
 
     <div class="highlight-card">
-      <h3>A07 – Identification & Authentication Failures</h3>
-      <p>Planned labs: weak reset tokens, session fixation, 2FA logic flaws, cookie abuse.</p>
-      <p><span class="badge intermediate">Intermediate</span> · <span class="badge advanced">Advanced</span></p>
+      <h3>A07 – Authentication Weaknesses</h3>
+      <p>Weak reset tokens, session fixation, cookie attacks, 2FA bypass labs.</p>
+      <p>
+        <span class="badge intermediate">Intermediate</span> ·
+        <span class="badge advanced">Advanced</span>
+      </p>
     </div>
 
   </div>
 
-  <p style="max-width: 850px; margin:30px auto 0; text-align:center; color:var(--text-soft); font-size:0.95rem;">
-    More labs will be added to cover <strong>all major OWASP categories</strong> with structured
-    progression from beginner to expert. Stay tuned on this page for updates.
+  <p style="max-width:850px; margin:30px auto 0; text-align:center; color:var(--text-soft); font-size:0.95rem;">
+    More labs will be added frequently. Follow this page for updates.
   </p>
 </section>
 
+<!-- Certificate Section -->
 <section class="section dark">
-  <h2 class="section-title">Finish & Get Your Certificate</h2>
-  <p style="max-width: 750px; margin: 0 auto; text-align:center; color:var(--text-soft);">
-    Once you've completed the full lab track and obtained the final master flag,
-    generate your <strong>SharadSAT Labs Certificate of Completion</strong>.
+  <h2 class="section-title">Get Your Certificate</h2>
+  <p style="max-width:750px; margin:0 auto; text-align:center; color:var(--text-soft);">
+    Complete all labs and enter the master flag to generate  
+    your official <strong>SharadSAT Labs Certificate of Completion</strong>.
   </p>
-  <div style="text-align:center; margin-top:20px;">
-    <a href="certificate.html" class="btn secondary">Go to Certificate Page</a>
+
+  <div style="text-align:center; margin-top:25px;">
+    <a href="certificate.html" class="btn secondary">Generate Certificate</a>
   </div>
 </section>
 
 <footer class="footer">
-  © <span id="year"></span> SharadSAT Labs — Designed & built by Sharad Bade
+  © <span id="year"></span> SharadSAT Labs — Designed & Built by Sharad Bade
 </footer>
 
 <script>
