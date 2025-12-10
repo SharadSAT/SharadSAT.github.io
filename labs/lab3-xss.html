@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 3 – Reflected XSS | SharadSAT Labs</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">Sharad<span>SAT</span></div>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../labs.html" style="color: var(--accent)">Labs</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="section">
+  <h1 class="section-title">Lab 3 – Reflected XSS Playground</h1>
+  <p style="max-width:800px; margin:0 auto; text-align:center; color:var(--text-soft);">
+    Dummy domain: <strong>xss-lab.sat</strong><br>
+    Your task: Inject a harmless payload like <code>&lt;script&gt;alert(1)&lt;/script&gt;</code>
+    and see how unsafe reflections create XSS.
+  </p>
+</section>
+
+<section class="section dark">
+  <h2 class="section-title">Try the Reflection</h2>
+
+  <div class="highlight-card" style="max-width:450px; margin:0 auto; text-align:left;">
+    <label>Enter something:</label>
+    <input id="xss-input" type="text"
+      style="width:100%; padding:8px; margin:6px 0; background:#020617; border:1px solid var(--card-border); color:#fff; border-radius:8px;">
+    
+    <button onclick="reflect()" class="btn primary" style="margin-top:10px;">Reflect</button>
+
+    <p style="margin-top:15px; color:var(--text-soft);">Reflection Output:</p>
+    <div id="xss-output"
+      style="background:#020617; padding:12px; border-radius:10px; border:1px solid var(--card-border); min-height:40px;">
+    </div>
+
+    <p id="xss-msg" style="margin-top:12px;"></p>
+  </div>
+</section>
+
+<footer class="footer">
+  © <span id="year"></span> SharadSAT Labs – Lab 3
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  function reflect() {
+    const inp = document.getElementById("xss-input").value;
+    const out = document.getElementById("xss-output");
+    const msg = document.getElementById("xss-msg");
+
+    // simulate unsafe reflection (this is educational, no real browser exploit)
+    out.innerHTML = inp;
+
+    if (inp.includes("<script>")) {
+      msg.innerHTML =
+        "🔥 XSS payload detected!<br>Your flag:<br><code>SATLAB{XSS_INTRO_DONE}</code>";
+      msg.style.color = "var(--accent)";
+    } else {
+      msg.textContent = "Try injecting a harmless script payload like <script>alert(1)</script>";
+      msg.style.color = "#f97373";
+    }
+  }
+</script>
+
+</body>
+</html>

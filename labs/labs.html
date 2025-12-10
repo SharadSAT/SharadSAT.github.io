@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SharadSAT Labs | Beginner to Advanced</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">Sharad<span>SAT</span></div>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="labs.html" style="color: var(--accent)">Labs</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="section">
+  <h1 class="section-title">SharadSAT Cyber Labs</h1>
+  <p style="max-width: 900px; margin: 0 auto; text-align:center; color: var(--text-soft); font-size:1.05rem;">
+    A curated series of hands-on labs based on <strong>OWASP Top 10</strong> and real-world attack scenarios.
+    Labs are organized from <span class="badge basic">Beginner</span> to
+    <span class="badge intermediate">Intermediate</span> to
+    <span class="badge advanced">Advanced</span> to help you grow progressively.
+  </p>
+</section>
+
+<!-- Series 1: Fundamentals -->
+<section class="section dark">
+  <h2 class="section-title">Series 1 – Web & HTTP Fundamentals</h2>
+  <div class="highlight-grid">
+
+    <div class="highlight-card">
+      <h3>Lab 1 – HTTP & Login Basics</h3>
+      <p>Understand requests, responses, and simple client-side validation weaknesses.</p>
+      <p><span class="badge basic">Beginner</span></p>
+      <a href="labs/lab1-basics.html" class="btn primary" style="margin-top:12px;">Start Lab 1</a>
+    </div>
+
+    <div class="highlight-card">
+      <h3>Lab 2 – SQL Injection Intro</h3>
+      <p>Login bypass using classic SQL injection payloads, fully simulated and safe.</p>
+      <p><span class="badge intermediate">Intermediate</span></p>
+      <a href="labs/lab2-sqli.html" class="btn primary" style="margin-top:12px;">Start Lab 2</a>
+    </div>
+
+    <div class="highlight-card">
+      <h3>Lab 3 – XSS Playground (Coming Soon)</h3>
+      <p>Reflected XSS via unsanitized input and unsafe output rendering.</p>
+      <p><span class="badge advanced">Advanced</span></p>
+      <button class="btn secondary" style="margin-top:12px;" disabled>Coming Soon</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- OWASP Top 10 overview block (for future labs) -->
+<section class="section">
+  <h2 class="section-title">Planned OWASP Top 10 Series</h2>
+  <div class="highlight-grid">
+
+    <div class="highlight-card">
+      <h3>A01 – Broken Access Control</h3>
+      <p>Planned labs: IDOR, force browsing, privilege escalation, role misconfigurations.</p>
+      <p><span class="badge basic">Beginner</span> · <span class="badge intermediate">Intermediate</span> · <span class="badge advanced">Advanced</span></p>
+    </div>
+
+    <div class="highlight-card">
+      <h3>A03 – Injection</h3>
+      <p>Planned labs: SQLi (union / blind), command injection simulation, NoSQL injection theory.</p>
+      <p><span class="badge basic">Beginner</span> · <span class="badge intermediate">Intermediate</span> · <span class="badge advanced">Advanced</span></p>
+    </div>
+
+    <div class="highlight-card">
+      <h3>A07 – Identification & Authentication Failures</h3>
+      <p>Planned labs: weak reset tokens, session fixation, 2FA logic flaws, cookie abuse.</p>
+      <p><span class="badge intermediate">Intermediate</span> · <span class="badge advanced">Advanced</span></p>
+    </div>
+
+  </div>
+
+  <p style="max-width: 850px; margin:30px auto 0; text-align:center; color:var(--text-soft); font-size:0.95rem;">
+    More labs will be added to cover <strong>all major OWASP categories</strong> with structured
+    progression from beginner to expert. Stay tuned on this page for updates.
+  </p>
+</section>
+
+<section class="section dark">
+  <h2 class="section-title">Finish & Get Your Certificate</h2>
+  <p style="max-width: 750px; margin: 0 auto; text-align:center; color:var(--text-soft);">
+    Once you've completed the full lab track and obtained the final master flag,
+    generate your <strong>SharadSAT Labs Certificate of Completion</strong>.
+  </p>
+  <div style="text-align:center; margin-top:20px;">
+    <a href="certificate.html" class="btn secondary">Go to Certificate Page</a>
+  </div>
+</section>
+
+<footer class="footer">
+  © <span id="year"></span> SharadSAT Labs — Designed & built by Sharad Bade
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

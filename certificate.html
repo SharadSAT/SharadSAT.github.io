@@ -21,16 +21,19 @@
 <section class="section">
   <h1 class="section-title">Generate Your Completion Certificate</h1>
   <p style="max-width:800px; margin:0 auto; text-align:center; color:var(--text-soft);">
-    After completing the lab series and collecting all flags, enter your name and the
-    final master flag provided at the end of the series.
+    After completing the lab series and collecting all flags, enter your name and the final
+    master flag provided at the end of the series. Only correct submissions will generate
+    a certificate.
   </p>
 
   <div class="highlight-card" style="max-width:500px; margin:25px auto; text-align:left;">
     <label>Your Name</label>
-    <input id="cert-name" type="text" style="width:100%; padding:8px; margin:6px 0; border-radius:6px; border:1px solid var(--card-border); background:#020617; color:#e5e5e5;">
+    <input id="cert-name" type="text"
+      style="width:100%; padding:8px; margin:6px 0; border-radius:6px; border:1px solid var(--card-border); background:#020617; color:#e5e5e5;">
 
     <label>Master Flag</label>
-    <input id="cert-flag" type="text" style="width:100%; padding:8px; margin:6px 0; border-radius:6px; border:1px solid var(--card-border); background:#020617; color:#e5e5e5;">
+    <input id="cert-flag" type="text"
+      style="width:100%; padding:8px; margin:6px 0; border-radius:6px; border:1px solid var(--card-border); background:#020617; color:#e5e5e5;">
 
     <button onclick="generateCert()" class="btn primary" style="margin-top:10px;">Generate Certificate</button>
     <p id="cert-msg" style="margin-top:10px;"></p>
@@ -39,7 +42,7 @@
 
 <section class="section" id="cert-section" style="display:none;">
   <div id="cert-card" style="
-    max-width:700px;
+    max-width:800px;
     margin:0 auto;
     padding:40px;
     background:#020617;
@@ -47,28 +50,62 @@
     border:2px solid var(--accent);
     box-shadow: var(--shadow);
     text-align:center;
+    position:relative;
+    overflow:hidden;
   ">
-    <h2 style="font-size:2rem; margin-bottom:10px;">SharadSAT Cyber Labs</h2>
-    <p style="color:var(--text-soft); margin-bottom:25px;">Certificate of Completion</p>
 
-    <p style="margin-bottom:10px;">This is to certify that</p>
-    <h3 id="cert-holder" style="font-size:1.7rem; margin-bottom:15px;"></h3>
+    <!-- Watermark -->
+    <div style="
+      position:absolute;
+      inset:0;
+      opacity:0.05;
+      font-size:4rem;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      pointer-events:none;
+    ">
+      SharadSAT Labs
+    </div>
 
-    <p style="max-width:500px; margin:0 auto 15px; color:var(--text-soft);">
-      has successfully completed the <strong>SharadSAT Beginner to Advanced Security Labs</strong>,
-      demonstrating hands-on understanding of core security concepts and practical exercises.
+    <h2 style="font-size:2.1rem; margin-bottom:4px; position:relative;">SharadSAT Labs</h2>
+    <p style="color:var(--text-soft); margin-bottom:24px; position:relative;">
+      <strong>Certificate of Completion</strong>
     </p>
 
-    <p style="margin-top:10px; color:var(--text-soft);">
-      Signed by: <strong>Sharad – Security Analyst & VAPT Specialist</strong>
+    <p style="margin-bottom:6px; position:relative;">This certificate is proudly awarded to</p>
+    <h3 id="cert-holder" style="font-size:1.8rem; margin-bottom:18px; position:relative;"></h3>
+
+    <p style="max-width:600px; margin:0 auto 18px; color:var(--text-soft); position:relative;">
+      for successfully completing the <strong>SharadSAT Beginner-to-Advanced Security Labs</strong> and
+      demonstrating practical understanding of core cybersecurity concepts including
+      HTTP, injection attacks, authentication weaknesses, misconfigurations, and secure design.
     </p>
-    <p style="margin-top:5px; font-size:0.9rem; color:var(--text-soft);">
-      Date: <span id="cert-date"></span>
+
+    <p style="margin-top:10px; color:var(--text-soft); position:relative;">
+      Master Flag Verified:
+      <code>SATLAB{ALL_LABS_DONE}</code>
     </p>
+
+    <div style="display:flex; justify-content:space-between; margin-top:30px; position:relative; flex-wrap:wrap; gap:16px;">
+      <div style="text-align:left;">
+        <p style="font-size:0.9rem; color:var(--text-soft); margin-bottom:4px;">Certificate ID</p>
+        <p id="cert-id" style="font-weight:bold;"></p>
+      </div>
+      <div style="text-align:left;">
+        <p style="font-size:0.9rem; color:var(--text-soft); margin-bottom:4px;">Issued On</p>
+        <p id="cert-date"></p>
+      </div>
+      <div style="text-align:left;">
+        <p style="font-size:0.9rem; color:var(--text-soft); margin-bottom:4px;">Signed By</p>
+        <p><strong>Sharad Bade – Security Analyst</strong></p>
+      </div>
+    </div>
+
   </div>
 
   <p style="text-align:center; margin-top:15px; color:var(--text-soft); font-size:0.9rem;">
-    Tip: Use your browser's <strong>Print</strong> option (Ctrl+P) and save as PDF to download this certificate.
+    Use your browser's <strong>Print</strong> option (Ctrl+P) and choose “Save as PDF” to download this certificate.
   </p>
 </section>
 
@@ -79,7 +116,8 @@
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  const MASTER_FLAG = "SATLAB{ALL_LABS_DONE}"; // you can change this later
+  // Master flag – yahi final requirement hai
+  const MASTER_FLAG = "SATLAB{ALL_LABS_DONE}";
 
   function generateCert() {
     const name = document.getElementById("cert-name").value.trim();
@@ -98,11 +136,15 @@
       return;
     }
 
-    msg.textContent = "✅ Certificate generated below.";
+    // success
+    msg.textContent = "✅ Certificate generated below. You can print or save it as PDF.";
     msg.style.color = "var(--accent)";
+
+    const id = "SAT-CERT-" + new Date().getFullYear() + "-" + Math.floor(1000 + Math.random() * 9000);
 
     document.getElementById("cert-holder").textContent = name;
     document.getElementById("cert-date").textContent = new Date().toLocaleDateString();
+    document.getElementById("cert-id").textContent = id;
     document.getElementById("cert-section").style.display = "block";
   }
 </script>
