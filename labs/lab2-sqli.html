@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 2 – SQL Injection Basics | SharadSAT Labs</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">Sharad<span>SAT</span></div>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../labs.html" style="color: var(--accent)">Labs</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="section">
+  <h1 class="section-title">Lab 2 – Dummy SQL Injection Login</h1>
+  <p style="max-width: 800px; margin: 0 auto; text-align:center; color: var(--text-soft);">
+    Dummy banking domain: <strong>satbank.lab</strong>  
+    The login form builds a SQL query unsafely.  
+    Learn how a classic <code>' OR 1=1 --</code> style payload works (theory only).
+  </p>
+</section>
+
+<section class="section dark">
+  <h2 class="section-title">Scenario</h2>
+  <p style="max-width: 800px; margin: 0 auto; color: var(--text-soft);">
+    The backend query looks like:
+  </p>
+  <pre style="max-width:800px; margin:10px auto; padding:10px; background:#020617; border-radius:8px; border:1px solid var(--card-border); overflow:auto;">
+SELECT * FROM users
+WHERE username = '<span id="q-user">?</span>'
+  AND password = '<span id="q-pass">?</span>';
+  </pre>
+  <p style="max-width: 800px; margin: 10px auto; color: var(--text-soft);">
+    Your task:
+  </p>
+  <ul style="max-width: 800px; margin: 0 auto; color: var(--text-soft);">
+    <li>Understand why putting raw input inside SQL is dangerous.</li>
+    <li>Use a payload that forces the condition to always be true.</li>
+    <li>Submit the correct payload to get the flag.</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2 class="section-title">Test the Dummy Payload</h2>
+
+  <div class="highlight-card" style="max-width:420px; margin: 0 auto; text-align:left;">
+    <label>Username</label>
+    <input id="sqli-user" type="text" style="width:100%; padding:8px; margin:6px 0; border-radius:6px; border:1px solid var(--card-border); background:#020617; color:#e5e5e5;">
+    <label>Password</label>
+    <input id="sqli-pass" type="text" style="width:100%; padding:8px; margin:6px 0; border-radius:6px; border:1px solid var(--card-border); background:#020617; color:#e5e5e5;">
+    <button onclick="testSQLi()" class="btn primary" style="margin-top:10px;">Submit</button>
+    <p id="sqli-msg" style="margin-top:10px;"></p>
+  </div>
+</section>
+
+<footer class="footer">
+  © <span id="year"></span> SharadSAT Labs – Lab 2
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  function escapeHTML(str) {
+    return str.replace(/[&<>"']/g, function (c) {
+      return ({
+        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+      })[c];
+    });
+  }
+
+  function testSQLi() {
+    const u = document.getElementById("sqli-user").value.trim();
+    const p = document.getElementById("sqli-pass").value.trim();
+    const msg = document.getElementById("sqli-msg");
+
+    // Show how it would look in query (just visual)
+    document.getElementById("q-user").innerHTML = escapeHTML(u);
+    document.getElementById("q-pass").innerHTML = escapeHTML(p);
+
+    // Very basic simulated check
+    if (p === "' OR 1=1 --" || p.toLowerCase() === "' or 1=1 --") {
+      msg.innerHTML = "✅ Simulated bypass detected!<br>Here is your flag:<br><code>SATLAB{SQLI_INTRO_DONE}</code>";
+      msg.style.color = "var(--accent)";
+    } else {
+      msg.textContent = "❌ That payload did not bypass the check. Think about making the WHERE condition always true.";
+      msg.style.color = "#f97373";
+    }
+  }
+</script>
+
+</body>
+</html>
