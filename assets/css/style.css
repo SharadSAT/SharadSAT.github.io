@@ -295,3 +295,8 @@ body {
 .section .highlight-card p {
     margin-bottom: 18px;
 }
+/* Fix for button spacing inside highlight-card */
+.highlight-card a.btn,
+.highlight-card button.btn {
+  margin-top: 16px !important;
+}
