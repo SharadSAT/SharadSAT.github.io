@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SharadSAT | Security Analyst & VAPT Specialist</title>
+  <title>SharadSAT Cyber Labs</title>
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
@@ -12,110 +12,100 @@
   <div class="logo">Sharad<span>SAT</span></div>
   <nav>
     <ul class="nav-links">
-      <li><a href="index.html" style="color: var(--accent)">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="projects.html">Projects</a></li>
-      <li><a href="labs.html">Labs</a></li>
+      <li><a href="labs.html" style="color: var(--accent)">Labs</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 </header>
 
-<!-- HERO SECTION -->
-<section class="hero">
-  <h1>Hello, I'm <span style="color: var(--accent)">Sharad</span></h1>
-  <h2>Security Analyst | VAPT Specialist | SOC Analyst | Tool Developer</h2>
-
-  <p class="hero-text">
-    I secure digital systems by performing VAPT, building custom automation tools,
-    monitoring threats, analyzing attacks, and improving organizational security posture.
-  </p>
-
-  <div class="hero-buttons">
-    <a href="projects.html" class="btn primary">Explore My Tools</a>
-    <a href="about.html" class="btn secondary">Know More About Me</a>
-  </div>
-</section>
-
-<!-- WHAT I DO SECTION (UPDATED & PROFESSIONAL) -->
+<!-- LAB INTRO -->
 <section class="section">
-  <h2 class="section-title">What I Do</h2>
+  <h1 class="section-title">SharadSAT Cyber Labs</h1>
+  <p style="max-width: 850px; margin: 0 auto; text-align:center; color: var(--text-soft); font-size:1.1rem;">
+    Hands-on cybersecurity labs covering OWASP Top 10, exploit simulation, and safe attack practice.
+    Solve each lab, collect flags, and earn a completion certificate.
+  </p>
+</section>
+
+<!-- LAB LIST -->
+<section class="section dark">
+  <h2 class="section-title">Beginner → Advanced Labs</h2>
 
   <div class="highlight-grid">
 
-    <!-- VAPT -->
     <div class="highlight-card">
-      <h3>🔐 VAPT</h3>
-      <p>Web, network, API, cloud, and internal application penetration testing with detailed reporting.</p>
+      <h3>Lab 1 – HTTP & Login Basics</h3>
+      <p>Understand HTTP, weak validation, and common login bypass issues.</p>
+      <p><span class="badge basic">Beginner</span></p>
+      <a href="labs/lab1-basics.html" class="btn primary">Start Lab 1</a>
     </div>
 
-    <!-- VA -->
     <div class="highlight-card">
-      <h3>🛡️ Vulnerability Assessment (VA)</h3>
-      <p>Identifying misconfigurations, weak controls, and patching gaps in applications & infrastructure.</p>
+      <h3>Lab 2 – SQL Injection</h3>
+      <p>Exploit unsafe SQL queries to bypass authentication.</p>
+      <p><span class="badge intermediate">Intermediate</span></p>
+      <a href="labs/lab2-sqli.html" class="btn primary">Start Lab 2</a>
     </div>
 
-    <!-- SOC Operations -->
     <div class="highlight-card">
-      <h3>🛰 SOC Operations</h3>
-      <p>Real-time monitoring, alert analysis, incident handling, threat hunting, and log investigation.</p>
-    </div>
-
-    <!-- Automation -->
-    <div class="highlight-card">
-      <h3>⚡ Automation</h3>
-      <p>I build Python automations to simplify scanning, auditing, reporting, and security workflows.</p>
-    </div>
-
-    <!-- Tools -->
-    <div class="highlight-card">
-      <h3>🛠 Tool Development</h3>
-      <p>Creator of AuditEye, SpyBees, and other custom tools built for real-world reconnaissance & testing.</p>
+      <h3>Lab 3 – Reflected XSS Playground</h3>
+      <p>Inject JavaScript into reflected user-controlled inputs.</p>
+      <p><span class="badge advanced">Advanced</span></p>
+      <a href="labs/lab3-xss.html" class="btn primary">Start Lab 3</a>
     </div>
 
   </div>
 </section>
 
-<!-- EXTERNAL LINKS / RESOURCES SECTION -->
-<section class="section dark">
-  <h2 class="section-title">Security Resources & Practice Labs</h2>
+<!-- RESOURCES -->
+<section class="section">
+  <h2 class="section-title">External Practice Resources</h2>
 
   <div class="highlight-grid">
-
     <div class="highlight-card">
       <h3>PortSwigger Academy</h3>
-      <p>Best OWASP-based learning platform for modern web security.</p>
-      <a target="_blank" href="https://portswigger.net/web-security" class="btn primary">Visit</a>
+      <p>OWASP-based modern web security labs.</p>
+      <a href="https://portswigger.net/web-security" target="_blank" class="btn primary">Visit</a>
     </div>
 
     <div class="highlight-card">
       <h3>Hack The Box</h3>
-      <p>Advance your offensive security skills with real-world machines.</p>
-      <a target="_blank" href="https://hackthebox.com" class="btn primary">Visit</a>
+      <p>Realistic penetration testing machines.</p>
+      <a href="https://hackthebox.com" target="_blank" class="btn primary">Visit</a>
     </div>
 
     <div class="highlight-card">
       <h3>TryHackMe</h3>
-      <p>Beginner to expert labs with guided cyber learning paths.</p>
-      <a target="_blank" href="https://tryhackme.com" class="btn primary">Visit</a>
+      <p>Beginner-friendly guided cybersecurity learning.</p>
+      <a href="https://tryhackme.com" target="_blank" class="btn primary">Visit</a>
     </div>
 
     <div class="highlight-card">
       <h3>OWASP Juice Shop</h3>
-      <p>Intentional vulnerable application for hands-on hacking.</p>
-      <a target="_blank" href="https://owasp.org/www-project-juice-shop" class="btn primary">Visit</a>
+      <p>Intentionally insecure app for practical hacking.</p>
+      <a href="https://owasp.org/www-project-juice-shop" target="_blank" class="btn primary">Visit</a>
     </div>
-
-  </div>
-
-  <div style="text-align:center; margin-top:20px;">
-    <a href="labs.html" class="btn secondary">Explore SharadSAT Labs</a>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- CERTIFICATE -->
+<section class="section dark">
+  <h2 class="section-title">Earn Your Certificate</h2>
+  <p style="max-width:750px; margin:0 auto; text-align:center; color:var(--text-soft);">
+    Complete all labs and use the final master flag to generate your official 
+    <strong>SharadSAT Labs Certificate of Completion</strong>.
+  </p>
+
+  <div style="text-align:center; margin-top:25px;">
+    <a href="certificate.html" class="btn secondary">Generate Certificate</a>
+  </div>
+</section>
+
 <footer class="footer">
-  © <span id="year"></span> SharadSAT | Security Analyst & VAPT Specialist
+  © <span id="year"></span> SharadSAT Labs — Designed by Sharad Bade
 </footer>
 
 <script>
