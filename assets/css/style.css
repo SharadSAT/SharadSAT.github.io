@@ -278,3 +278,20 @@ body {
     justify-content: space-between;
     min-height: 260px; /* makes all cards equal & clean */
 }
+/* Universal fix: card spacing + button alignment */
+.highlight-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 260px;
+    padding-bottom: 20px;
+}
+
+.highlight-card .btn {
+    margin-top: 18px !important;
+}
+
+/* Ensure Visit buttons get clean spacing too */
+.section .highlight-card p {
+    margin-bottom: 18px;
+}
