@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SharadSAT Labs | Beginner to Advanced</title>
+  <title>SharadSAT Cyber Labs</title>
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
@@ -21,61 +21,118 @@
   </nav>
 </header>
 
+<!-- INTRO SECTION -->
 <section class="section">
   <h1 class="section-title">SharadSAT Cyber Labs</h1>
-  <p style="max-width: 800px; margin: 0 auto; text-align:center; color: var(--text-soft); font-size:1.05rem;">
-    Practice security concepts from <strong>beginner to advanced</strong> using dummy targets and safe challenges.
-    Each lab gives you a <strong>flag</strong> in the format <code>SATLAB{...}</code>. Collect all flags, solve the
-    master question, and generate your completion certificate.
+  <p style="max-width: 850px; margin: 0 auto; text-align:center; color: var(--text-soft); font-size:1.05rem;">
+    Hands-on cybersecurity labs designed to teach you real-world vulnerabilities, exploitation
+    techniques, and secure coding practices.  
+    Solve each lab, collect all flags, and generate your <strong>SharadSAT Labs Certificate</strong>.
   </p>
 </section>
 
+<!-- LAB SERIES -->
 <section class="section dark">
-  <h2 class="section-title">Lab Series</h2>
+  <h2 class="section-title">Lab Series (Beginner → Advanced)</h2>
 
   <div class="highlight-grid">
 
+    <!-- LAB 1 -->
     <div class="highlight-card">
-      <h3>Lab 3 – XSS Playground</h3>
-      <p>Reflected XSS via unsanitized input and unsafe output rendering.</p>
+      <h3>Lab 1 – HTTP & Login Basics</h3>
+      <p>Understand how HTTP works and how simple login validation can be bypassed.</p>
+      <p><span class="badge basic">Beginner</span></p>
+      <a href="labs/lab1-basics.html" class="btn primary" style="margin-top:12px;">Start Lab 1</a>
+    </div>
+
+    <!-- LAB 2 -->
+    <div class="highlight-card">
+      <h3>Lab 2 – SQL Injection (Dummy Portal)</h3>
+      <p>Learn how weak login queries can be exploited using SQL injection techniques.</p>
+      <p><span class="badge intermediate">Intermediate</span></p>
+      <a href="labs/lab2-sqli.html" class="btn primary" style="margin-top:12px;">Start Lab 2</a>
+    </div>
+
+    <!-- LAB 3 -->
+    <div class="highlight-card">
+      <h3>Lab 3 – Reflected XSS Playground</h3>
+      <p>Discover how unsafe reflections allow JavaScript injection (XSS attack).</p>
       <p><span class="badge advanced">Advanced</span></p>
       <a href="labs/lab3-xss.html" class="btn primary" style="margin-top:12px;">Start Lab 3</a>
     </div>
 
+  </div>
+</section>
+
+<!-- EXTERNAL RESOURCES SECTION -->
+<section class="section">
+  <h2 class="section-title">External Practice Resources</h2>
+
+  <p style="max-width:900px; margin:0 auto 30px; text-align:center; color:var(--text-soft);">
+    Improve your skills by practicing on world-class cybersecurity platforms.
+    These resources complement SharadSAT Labs and expand your knowledge.
+  </p>
+
+  <div class="highlight-grid">
+
     <div class="highlight-card">
-      <h3>Lab 2 – SQL Injection (Dummy Portal)</h3>
-      <p>Understand how unsafe login queries can be bypassed using simple SQL injection payloads.</p>
-      <p><strong>Level:</strong> Intermediate</p>
-      <a href="labs/lab2-sqli.html" class="btn primary" style="margin-top:12px;">Start Lab 2</a>
+      <h3>PortSwigger Web Security Academy</h3>
+      <p>Learn OWASP vulnerabilities with guided labs.</p>
+      <a href="https://portswigger.net/web-security" target="_blank" class="btn primary">Open PortSwigger</a>
     </div>
 
     <div class="highlight-card">
-      <h3>Lab 3 – Reflected XSS Playground</h3>
-      <p>Play with reflected input and see how dangerous unescaped output can be in a browser.</p>
-      <p><strong>Level:</strong> Advanced</p>
-      <a href="labs/lab3-xss.html" class="btn primary" style="margin-top:12px;">Start Lab 3</a>
+      <h3>Hack The Box</h3>
+      <p>Realistic machines and offensive security practice.</p>
+      <a href="https://www.hackthebox.com" target="_blank" class="btn primary">Open HackTheBox</a>
+    </div>
+
+    <div class="highlight-card">
+      <h3>TryHackMe</h3>
+      <p>Beginner-friendly, structured cybersecurity learning paths.</p>
+      <a href="https://tryhackme.com" target="_blank" class="btn primary">Open TryHackMe</a>
+    </div>
+
+    <div class="highlight-card">
+      <h3>OWASP Juice Shop</h3>
+      <p>Intentionally vulnerable app covering OWASP Top 10.</p>
+      <a href="https://owasp.org/www-project-juice-shop/" target="_blank" class="btn primary">Open Juice Shop</a>
+    </div>
+
+    <div class="highlight-card">
+      <h3>DVWA / bWAPP</h3>
+      <p>Local vulnerable environments for SQLi, XSS, IDOR & more.</p>
+      <a href="http://www.dvwa.co.uk/" target="_blank" class="btn primary">Download DVWA</a>
+    </div>
+
+    <div class="highlight-card">
+      <h3>PayloadAllTheThings</h3>
+      <p>Massive payload collection for all vulnerability categories.</p>
+      <a href="https://github.com/swisskyrepo/PayloadsAllTheThings" target="_blank" class="btn primary">Open Repository</a>
     </div>
 
   </div>
 </section>
 
-<section class="section">
-  <h2 class="section-title">Finish & Get Certificate</h2>
+<!-- CERTIFICATE SECTION -->
+<section class="section dark">
+  <h2 class="section-title">Get Your Certificate</h2>
   <p style="max-width: 750px; margin: 0 auto; text-align:center; color: var(--text-soft);">
-    Once you've solved the labs and collected their flags, go to the certificate page,
-    answer the final question, and generate a <strong>SharadSAT Labs Completion</strong> certificate.
+    Complete all labs and enter the master flag to generate your official  
+    <strong>SharadSAT Labs Certificate of Completion</strong>.
   </p>
   <div style="text-align:center; margin-top:20px;">
-    <a href="certificate.html" class="btn secondary">Go to Certificate Page</a>
+    <a href="certificate.html" class="btn secondary">Generate Certificate</a>
   </div>
 </section>
 
 <footer class="footer">
-  © <span id="year"></span> SharadSAT — Labs Series by SharadSAT Security
+  © <span id="year"></span> SharadSAT — Labs Series by Sharad Bade
 </footer>
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
+
 </body>
 </html>
