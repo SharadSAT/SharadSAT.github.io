@@ -28,8 +28,8 @@
     <h1 class="section-title">My Security Tools & Projects</h1>
 
     <p style="max-width: 850px; margin: auto; text-align: center; color: var(--text-soft); font-size: 1.1rem;">
-      Here are some of the tools I've built for real-world security assessments,
-      recon automation, and internal audit improvement.
+      Tools developed for real-world security assessments, recon automation,
+      asset discovery, exposure detection, and improving internal audit posture.
     </p>
 
     <div class="highlight-grid" style="margin-top: 40px;">
@@ -40,7 +40,8 @@
         <p>
           Automated auditing tool for ports, services, misconfigurations, and security posture checks.
         </p>
-        <a class="btn primary" style="margin-top: 15px;"
+
+        <a class="btn primary project-btn" 
            href="https://github.com/SharadSAT/AuditEye" target="_blank">
           View on GitHub
         </a>
@@ -50,9 +51,10 @@
       <div class="highlight-card">
         <h3>🐝 SpyBees</h3>
         <p>
-          Recon automation tool for asset discovery, exposure detection, and monitoring.
+          Recon automation tool for asset discovery, exposure detection, and continuous monitoring.
         </p>
-        <a class="btn secondary" style="margin-top: 15px;">
+
+        <a class="btn secondary project-btn">
           Coming Soon
         </a>
       </div>
@@ -61,9 +63,10 @@
       <div class="highlight-card">
         <h3>⚙ Nuclia Helper Scripts</h3>
         <p>
-          Internal helper utilities for scan template management and prioritizing security findings.
+          Internal utilities for template management and prioritizing security findings.
         </p>
-        <a class="btn secondary" style="margin-top: 15px;">
+
+        <a class="btn secondary project-btn">
           Private Tool
         </a>
       </div>
@@ -77,6 +80,10 @@
   <footer class="footer">
     © <span id="year"></span> SharadSAT — Security Analyst & VAPT Specialist
   </footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
