@@ -188,3 +188,44 @@ body::before {
   color: var(--text-soft);
   border-top: 1px solid rgba(0, 234, 255, 0.1);
 }
+/* HERO SECTION FIX */
+.hero-section {
+  padding: 90px 20px;
+  text-align: center;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0));
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: auto;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.hero-title span {
+  color: var(--accent);
+}
+
+.hero-subtitle {
+  font-size: 1.4rem;
+  color: var(--text-soft);
+  margin-bottom: 15px;
+}
+
+.hero-text {
+  font-size: 1.1rem;
+  color: var(--text-soft);
+  max-width: 750px;
+  margin: auto;
+}
+
+.hero-buttons {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
