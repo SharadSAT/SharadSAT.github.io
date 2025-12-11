@@ -1,79 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SharadSAT | Security Analyst</title>
+  <title>SharadSAT | Security Analyst & VAPT Specialist</title>
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
 <body>
-<header class="navbar">
-  <div class="logo">Sharad<span>SAT</span></div>
-  <nav>
-    <ul class="nav-links">
-      <li><a href="index.html" style="color: var(--accent)">Home</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="labs.html">Labs</a></li>
-      <li><a href="dashboard.html">Dashboard</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
 
-<!-- HERO SECTION -->
-<section class="hero-section">
-  <div class="hero-content">
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">Sharad<span>SAT</span></div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html" style="color: var(--accent)">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="labs.html">Labs</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <h1 class="hero-title">Hello, I'm <span>Sharad</span></h1>
+  <!-- HERO (MATCHING YOUR CSS HERO SECTION FIX) -->
+  <section class="hero-section">
+    <div class="hero-content">
 
-    <h2 class="hero-subtitle">
-      Security Analyst • VAPT Specialist • Tool Developer
-    </h2>
+      <h1 class="hero-title">Hello, I'm <span>Sharad</span></h1>
 
-    <p class="hero-text">
-      I help organizations secure their infrastructure by performing 
-      penetration testing, building automation tools, and monitoring 
-      real-world cyber threats.
-    </p>
+      <h2 class="hero-subtitle">
+        Security Analyst • VAPT Specialist • Tool Developer
+      </h2>
 
-    <div class="hero-buttons">
-      <a href="projects.html" class="btn primary">Explore My Tools</a>
-      <a href="about.html" class="btn secondary">Know More</a>
+      <p class="hero-text">
+        I help organizations secure their digital infrastructure by performing penetration testing,
+        building custom security tools, and automating real-world cyber assessments.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="projects.html" class="btn primary">Explore My Tools</a>
+        <a href="about.html" class="btn secondary">Know More</a>
+      </div>
+
     </div>
+  </section>
 
-  </div>
-</section>
+  <!-- WHAT I DO -->
+  <section class="section">
+    <h2 class="section-title">What I Do</h2>
 
-<section class="section dark">
-  <h2 class="section-title">What I Do</h2>
+    <div class="highlight-grid">
 
-  <div class="highlight-grid">
+      <div class="highlight-card">
+        <h3>🔐 VAPT</h3>
+        <p>Security assessments for networks, APIs, internal systems, and web applications.</p>
+      </div>
 
-    <div class="highlight-card">
-      <h3>🔐 VAPT</h3>
-      <p>Web, API, Network & Cloud penetration testing.</p>
+      <div class="highlight-card">
+        <h3>⚡ Automation</h3>
+        <p>I build Python tools to automate scanning, auditing, reporting & recon tasks.</p>
+      </div>
+
+      <div class="highlight-card">
+        <h3>🛠 Tool Development</h3>
+        <p>Creator of AuditEye, SpyBees & advanced scripts for real-world security analysis.</p>
+      </div>
+
     </div>
+  </section>
 
-    <div class="highlight-card">
-      <h3>⚡ Automation</h3>
-      <p>I build Python tools for scanning, reporting & recon.</p>
-    </div>
+  <!-- FOOTER -->
+  <footer class="footer">
+    © <span id="year"></span> SharadSAT | Security Analyst & VAPT Specialist
+  </footer>
 
-    <div class="highlight-card">
-      <h3>🛠 Tool Development</h3>
-      <p>Creator of AuditEye, SpyBees & custom security utilities.</p>
-    </div>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
-  </div>
-</section>
-
-<footer class="footer">
-  © <span id="year"></span> SharadSAT — Security Analyst
-</footer>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
 </body>
+
 </html>
