@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SharadSAT | Security Analyst & VAPT Specialist</title>
+  <title>SharadSAT | Security Analyst &amp; VAPT Specialist</title>
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-
 <body>
 
-  <!-- NAVBAR -->
   <header class="navbar">
-    <div class="logo">Sharad<span>SAT</span></div>
+    <a href="index.html" class="logo">Sharad<span>SAT</span></a>
     <nav>
       <ul class="nav-links">
-        <li><a href="index.html" style="color: var(--accent)">Home</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="labs.html">Labs</a></li>
         <li><a href="dashboard.html">Dashboard</a></li>
@@ -24,87 +21,138 @@
     </nav>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="hero-section" style="padding-bottom: 40px;">
+  <!-- HERO -->
+  <section class="hero-section">
     <div class="hero-content">
+      <div class="hero-badge">Security Analyst &amp; VAPT Specialist</div>
 
-      <h1 class="hero-title">Hello, I'm <span>Sharad</span></h1>
+      <h1 class="hero-title">
+        Hello, I'm <span class="name">Sharad</span>
+      </h1>
 
-      <h2 class="hero-subtitle">
-        Security Analyst • VAPT Specialist • Tool Developer
-      </h2>
+      <p class="hero-subtitle">
+        <span id="typed-text"></span><span class="typing-cursor"></span>
+      </p>
 
       <p class="hero-text">
-        I help organizations secure their infrastructure by performing VAPT,
-        building automation tools, and monitoring real-world cyber threats.
+        I help organizations secure their infrastructure through VAPT, threat hunting,
+        SOC engineering, and custom-built automation tools for real-world cyber defense.
       </p>
 
       <div class="hero-buttons">
         <a href="projects.html" class="btn primary">Explore My Tools</a>
-        <a href="about.html" class="btn secondary">Know More</a>
+        <a href="about.html" class="btn secondary">About Me</a>
+        <a href="contact.html" class="btn secondary">Get in Touch</a>
       </div>
-
     </div>
   </section>
 
+  <!-- STATS -->
+  <div class="stats-bar reveal">
+    <div class="stat-item">
+      <div class="stat-number">3+</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">50+</div>
+      <div class="stat-label">Security Assessments</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">5+</div>
+      <div class="stat-label">Tools Built</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">20+</div>
+      <div class="stat-label">Scanning Tools</div>
+    </div>
+  </div>
+
   <!-- WHAT I DO -->
-  <section class="section" style="padding-top: 35px;">
+  <section class="section reveal">
     <h2 class="section-title">What I Do</h2>
+    <p class="section-sub">End-to-end security services from assessment to remediation and automation.</p>
 
     <div class="highlight-grid">
-
       <div class="highlight-card">
         <h3>🔐 VAPT</h3>
-        <p>Web, API, Network & Cloud penetration testing. Perform exploitation, reporting & remediation guidance.</p>
+        <p>Web, API, Network &amp; Cloud penetration testing. Full exploitation cycle with professional reporting and remediation guidance.</p>
+        <div class="tag-list"><span class="tag">Web</span><span class="tag">API</span><span class="tag">Network</span><span class="tag">Cloud</span></div>
       </div>
 
       <div class="highlight-card">
-        <h3>🛡 Security Audit & Hardening</h3>
-        <p>Full infrastructure audits, misconfiguration detection, compliance checks & security posture improvement.</p>
+        <h3>🛡 Security Audit &amp; Hardening</h3>
+        <p>Full infrastructure audits, misconfiguration detection, compliance checks &amp; security posture improvement across all layers.</p>
+        <div class="tag-list"><span class="tag">OWASP</span><span class="tag">NIST</span><span class="tag">PCI DSS</span></div>
       </div>
 
       <div class="highlight-card">
         <h3>🎯 Threat Hunting</h3>
-        <p>Detect anomalies, adversary behavior & suspicious events using logs, behavioral patterns & MITRE ATT&CK.</p>
+        <p>Detect anomalies, adversary behavior &amp; suspicious events using logs, behavioral patterns &amp; MITRE ATT&amp;CK framework.</p>
+        <div class="tag-list"><span class="tag">MITRE</span><span class="tag">SIEM</span><span class="tag">Log Analysis</span></div>
       </div>
 
       <div class="highlight-card">
-        <h3>🚨 Insider & Outsider Threat Detection</h3>
-        <p>Identified privilege misuse, unauthorized access attempts & external attack indicators with detailed reporting.</p>
+        <h3>🚨 Insider &amp; Outsider Threat Detection</h3>
+        <p>Identified privilege misuse, unauthorized access attempts &amp; external attack indicators with detailed forensic reporting.</p>
+        <div class="tag-list"><span class="tag">DLP</span><span class="tag">UAM</span><span class="tag">Forensics</span></div>
       </div>
 
       <div class="highlight-card">
         <h3>📡 SOC Engineering</h3>
-        <p>Configure & tune rules, generate alerts, create investigation tasks, and coordinate with IT to fix vulnerabilities.</p>
+        <p>Configure &amp; tune detection rules, generate alerts, create investigation tasks, and coordinate remediation with IT teams.</p>
+        <div class="tag-list"><span class="tag">Wazuh</span><span class="tag">Splunk</span><span class="tag">Alerts</span></div>
       </div>
 
       <div class="highlight-card">
         <h3>⚡ Automation</h3>
-        <p>Build Python automation tools for scanning, reconciliation, auditing, reporting & monitoring workflows.</p>
+        <p>Build Python automation tools for scanning, reconciliation, auditing, reporting &amp; continuous monitoring workflows.</p>
+        <div class="tag-list"><span class="tag">Python</span><span class="tag">Bash</span><span class="tag">APIs</span></div>
       </div>
 
       <div class="highlight-card">
         <h3>🛠 Tool Development</h3>
-        <p>Creator of AuditEye, SpyBees & internal automation utilities used for real security assessments.</p>
+        <p>Creator of HexaVault, SpyBees, Browser Security Monitor &amp; internal utilities used in real security assessments.</p>
+        <div class="tag-list"><span class="tag">HexaVault</span><span class="tag">SpyBees</span><span class="tag">Open Source</span></div>
       </div>
 
       <div class="highlight-card">
         <h3>👨‍💼 Technical Leadership</h3>
-        <p>Lead security initiatives, guide juniors, prepare documentation & improve security operations efficiency.</p>
+        <p>Lead security initiatives, mentor juniors, prepare comprehensive documentation &amp; improve SOC operational efficiency.</p>
+        <div class="tag-list"><span class="tag">Leadership</span><span class="tag">Mentoring</span><span class="tag">Docs</span></div>
       </div>
-
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
-    © <span id="year"></span> SharadSAT | Security Analyst & VAPT Specialist
+    © <span id="year"></span> SharadSAT &mdash; Security Analyst &amp; VAPT Specialist &nbsp;·&nbsp;
+    <a href="https://github.com/SharadSAT" target="_blank">GitHub</a>
   </footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    const phrases = [
+      "Penetration Tester",
+      "Security Automation Engineer",
+      "Threat Hunter",
+      "SOC Engineer",
+      "Tool Developer"
+    ];
+    let pi = 0, ci = 0, deleting = false;
+    const el = document.getElementById("typed-text");
+    function type() {
+      const word = phrases[pi];
+      el.textContent = deleting ? word.substring(0, ci--) : word.substring(0, ci++);
+      if (!deleting && ci === word.length + 1) { deleting = true; setTimeout(type, 1400); return; }
+      if (deleting && ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
+      setTimeout(type, deleting ? 50 : 90);
+    }
+    type();
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
-
 </body>
-
 </html>
