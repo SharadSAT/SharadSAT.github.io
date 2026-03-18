@@ -1,99 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | SharadSAT</title>
-  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
 
-<div id="progress-bar"></div>
-<canvas id="matrix-canvas"></canvas>
+  <header class="navbar">
+    <a href="index.html" class="logo">Sharad<span>SAT</span></a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<header class="navbar">
-  <a href="index.html" class="logo">Sharad<span>SAT</span></a>
-  <nav>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="contact.html" class="active">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+  <section class="hero-section" style="min-height: auto; padding: 80px 24px 60px;">
+    <div class="hero-content">
+      <div class="hero-badge">Get In Touch</div>
+      <h1 class="hero-title" style="font-size: clamp(2rem, 4vw, 3rem);">
+        Let's <span class="name">Connect</span>
+      </h1>
+      <p class="hero-text">
+        Looking for a security engineer who delivers real results? Whether it's VAPT, threat analysis,
+        automation tooling, or consulting — I'd love to hear about your challenge.
+      </p>
+    </div>
+  </section>
 
-<section class="hero-section" style="min-height:auto;padding:80px 24px 60px;">
-  <div class="hero-content">
-    <div class="hero-badge"><span></span>Open to Opportunities</div>
-    <h1 class="hero-title" style="font-size:clamp(2rem,4vw,3.5rem);">
-      Let's <span class="name">Connect</span>
-    </h1>
-    <p class="hero-text">
-      Looking for a security engineer who delivers real results?
-      Whether it's VAPT, threat analysis, automation tooling, or consulting —
-      I'd love to hear about your challenge.
-    </p>
-  </div>
-</section>
+  <section class="section reveal">
+    <div class="highlight-grid" style="max-width: 860px; margin: 0 auto; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
 
-<section class="section reveal">
-  <div class="highlight-grid" style="max-width:900px;margin:0 auto;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));">
+      <div class="contact-card">
+        <span class="contact-icon">📩</span>
+        <h3>Email</h3>
+        <a href="mailto:sharadbade70@gmail.com">sharadbade70@gmail.com</a>
+      </div>
 
-    <div class="contact-card">
-      <span class="contact-icon">📩</span>
-      <h3>Email</h3>
-      <a href="mailto:sharadbade70@gmail.com">sharadbade70@gmail.com</a>
+      <div class="contact-card">
+        <span class="contact-icon">💻</span>
+        <h3>GitHub</h3>
+        <a href="https://github.com/SharadSAT" target="_blank">github.com/SharadSAT</a>
+      </div>
+
+      <div class="contact-card">
+        <span class="contact-icon">🔗</span>
+        <h3>LinkedIn</h3>
+        <a href="https://www.linkedin.com/in/sharad-bade-6ba120336" target="_blank">linkedin.com/in/sharad-bade</a>
+      </div>
+
     </div>
 
-    <div class="contact-card">
-      <span class="contact-icon">💻</span>
-      <h3>GitHub</h3>
-      <a href="https://github.com/SharadSAT" target="_blank">github.com/SharadSAT</a>
+    <div style="max-width: 700px; margin: 56px auto 0; text-align: center;">
+      <p style="color: var(--text-soft); font-size: 1rem; line-height: 1.9;">
+        I'm open to <strong style="color: var(--text);">cybersecurity roles</strong>,
+        <strong style="color: var(--text);">consulting engagements</strong>, and
+        <strong style="color: var(--text);">collaborative security projects</strong>
+        where I can apply my skills to solve complex security challenges and deliver measurable impact.
+      </p>
     </div>
+  </section>
 
-    <div class="contact-card">
-      <span class="contact-icon">🔗</span>
-      <h3>LinkedIn</h3>
-      <a href="https://www.linkedin.com/in/sharad-bade-6ba120336" target="_blank">linkedin.com/in/sharad-bade</a>
-    </div>
+  <footer class="footer">
+    © <span id="year"></span> SharadSAT &mdash; Security Analyst &amp; VAPT Specialist &nbsp;·&nbsp;
+    <a href="https://github.com/SharadSAT" target="_blank">GitHub</a>
+  </footer>
 
-  </div>
-
-  <div style="max-width:680px;margin:56px auto 0;text-align:center;">
-    <p style="color:var(--text-soft);font-size:1rem;line-height:2;">
-      I'm open to <strong style="color:var(--text);">cybersecurity roles</strong>,
-      <strong style="color:var(--text);">consulting engagements</strong>, and
-      <strong style="color:var(--text);">collaborative security projects</strong>
-      where I can apply my skills to solve complex security challenges and deliver measurable impact.
-    </p>
-  </div>
-</section>
-
-<footer class="footer">
-  © <span id="year"></span> SharadSAT &nbsp;—&nbsp; Security Analyst &amp; VAPT Specialist &nbsp;·&nbsp;
-  <a href="https://github.com/SharadSAT" target="_blank">github.com/SharadSAT</a>
-</footer>
-
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-window.addEventListener('scroll',()=>{
-  const s=document.documentElement.scrollTop;
-  const h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
-  document.getElementById('progress-bar').style.width=(s/h*100)+'%';
-});
-(function(){
-  const canvas=document.getElementById('matrix-canvas');
-  const ctx=canvas.getContext('2d');
-  let W,H,cols,drops;
-  const chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&<>/\\|{}[]';
-  function init(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;cols=Math.floor(W/18);drops=Array(cols).fill(1);}
-  init();window.addEventListener('resize',init);
-  function draw(){ctx.fillStyle='rgba(2,8,23,0.05)';ctx.fillRect(0,0,W,H);ctx.fillStyle='#00f0ff';ctx.font='13px Fira Code,monospace';for(let i=0;i<drops.length;i++){const c=chars[Math.floor(Math.random()*chars.length)];ctx.fillText(c,i*18,drops[i]*18);if(drops[i]*18>H&&Math.random()>0.975)drops[i]=0;drops[i]++;}}
-  setInterval(draw,45);
-})();
-const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-</script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
