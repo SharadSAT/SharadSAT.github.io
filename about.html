@@ -3,86 +3,142 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Me | SharadSAT</title>
+  <title>About | SharadSAT</title>
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-
 <body>
 
 <header class="navbar">
-  <div class="logo">Sharad<span>SAT</span></div>
+  <a href="index.html" class="logo">Sharad<span>SAT</span></a>
   <nav>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="about.html" style="color: var(--accent)">About</a></li>
+      <li><a href="about.html" class="active">About</a></li>
       <li><a href="projects.html">Projects</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 </header>
 
-<section class="section">
-  <h1 class="section-title">About Me</h1>
-
-  <p style="max-width: 850px; margin: 10px auto; text-align: center; color: var(--text-soft); font-size: 1.1rem;">
-    I'm <strong>Sharad</strong>, a Security Analyst and VAPT Specialist with real-world experience
-    in identifying vulnerabilities, performing penetration testing, improving security posture,
-    and building automation tools that streamline and enhance cyber defense operations.
-  </p>
-</section>
-
-<section class="section dark skills-section">
-  <h2 class="section-title">Professional Skills</h2>
-
-  <div class="highlight-grid">
-
-    <div class="highlight-card">
-      <h3>🔐 VAPT Expertise</h3>
-      <p>Web, API, Network, Cloud & Internal Infra penetration testing with practical reporting.</p>
-    </div>
-
-    <div class="highlight-card">
-      <h3>⚡ Automation Development</h3>
-      <p>Python tools for recon, scanning, audit automation & intelligent reporting systems.</p>
-    </div>
-
-    <div class="highlight-card">
-      <h3>🛰 Threat Hunting</h3>
-      <p>Identifying insider & outsider threats, anomaly detection, and attack path analysis.</p>
-    </div>
-
-    <div class="highlight-card">
-      <h3>🛡 SOC Operations</h3>
-      <p>Configured detection rules, monitored alerts, created incident tickets, and worked with IT teams to mitigate vulnerabilities.</p>
-    </div>
-
-    <div class="highlight-card">
-      <h3>📌 Responsible Security Practices</h3>
-      <p>Created SIEM alerts, improved rule efficiency, validated false positives, and coordinated with leadership to close security gaps.</p>
-    </div>
-
-    <div class="highlight-card">
-      <h3>🧠 Leadership & Ownership</h3>
-      <p>Took initiative in driving security improvements, mentoring juniors, and delivering actionable recommendations.</p>
-    </div>
-
+<section class="hero-section" style="min-height: auto; padding: 80px 24px 60px;">
+  <div class="hero-content">
+    <div class="hero-badge">About Me</div>
+    <h1 class="hero-title" style="font-size: clamp(2rem, 4vw, 3rem);">
+      Security Analyst &amp; <span class="name">VAPT Specialist</span>
+    </h1>
+    <p class="hero-text">
+      I'm <strong style="color: var(--text);">Sharad</strong>, a hands-on security professional with real-world experience
+      identifying vulnerabilities, conducting penetration tests, and building automation tools
+      that streamline cyber defense operations. I combine technical depth with practical execution.
+    </p>
   </div>
 </section>
 
-<section class="section">
-  <h2 class="section-title">Why Work With Me?</h2>
+<section class="section dark reveal">
+  <h2 class="section-title">Technical Skills</h2>
+  <p class="section-sub">Core competencies built through real-world engagements.</p>
 
-  <ul style="max-width: 750px; margin: auto; list-style: none; font-size: 1.1rem; color: var(--text-soft);">
-    <li>✔ Strong practical understanding of internal & external security threats</li>
-    <li>✔ Ability to automate time-consuming security tasks efficiently</li>
-    <li>✔ Clear and professional vulnerability reporting with mitigation steps</li>
-    <li>✔ Always learning, improving, and staying updated with modern threats</li>
-  </ul>
+  <div class="highlight-grid" style="max-width: 900px; margin: 0 auto;">
+    <div class="highlight-card">
+      <h3>Offensive Security</h3>
+      <div class="skill-item">
+        <div class="skill-header"><span>Web &amp; API Penetration Testing</span><span class="skill-pct">90%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header"><span>Network &amp; Infra VAPT</span><span class="skill-pct">85%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header"><span>Exploit Validation &amp; PoC</span><span class="skill-pct">80%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width: 80%;"></div></div>
+      </div>
+    </div>
+
+    <div class="highlight-card">
+      <h3>Defensive Security</h3>
+      <div class="skill-item">
+        <div class="skill-header"><span>SOC Operations &amp; Alert Tuning</span><span class="skill-pct">88%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width: 88%;"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header"><span>Threat Hunting &amp; Detection</span><span class="skill-pct">82%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width: 82%;"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header"><span>SIEM &amp; Log Analysis</span><span class="skill-pct">85%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
+      </div>
+    </div>
+
+    <div class="highlight-card">
+      <h3>Development &amp; Automation</h3>
+      <div class="skill-item">
+        <div class="skill-header"><span>Python Security Tooling</span><span class="skill-pct">88%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width: 88%;"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header"><span>Bash &amp; Scripting</span><span class="skill-pct">80%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width: 80%;"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header"><span>API &amp; Web Automation</span><span class="skill-pct">82%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width: 82%;"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <h2 class="section-title">Tools &amp; Technologies</h2>
+  <p class="section-sub">Platforms and tools used across real security engagements.</p>
+  <div style="max-width: 860px; margin: 0 auto;">
+    <div class="tag-list" style="justify-content: center; gap: 10px;">
+      <span class="tag">Nmap</span><span class="tag">Nuclei</span><span class="tag">Nikto</span>
+      <span class="tag">Burp Suite</span><span class="tag">SQLMap</span><span class="tag">Subfinder</span>
+      <span class="tag">OpenVAS</span><span class="tag">Metasploit</span><span class="tag">Wazuh</span>
+      <span class="tag">Splunk</span><span class="tag">Wireshark</span><span class="tag">FFUF</span>
+      <span class="tag">Hydra</span><span class="tag">John the Ripper</span><span class="tag">Gobuster</span>
+      <span class="tag">Python</span><span class="tag">Bash</span><span class="tag">Docker</span>
+      <span class="tag">Linux</span><span class="tag">Git</span><span class="tag">MITRE ATT&amp;CK</span>
+    </div>
+  </div>
+</section>
+
+<section class="section dark reveal">
+  <h2 class="section-title">Why Work With Me?</h2>
+  <p class="section-sub">What sets me apart in real security engagements.</p>
+  <div class="highlight-grid" style="max-width: 900px; margin: 0 auto;">
+    <div class="highlight-card">
+      <h3>✔ Practical Depth</h3>
+      <p>Strong hands-on understanding of both offensive and defensive security — not just theory.</p>
+    </div>
+    <div class="highlight-card">
+      <h3>✔ Automation First</h3>
+      <p>I automate repetitive security tasks, so teams can focus on high-value analysis and response.</p>
+    </div>
+    <div class="highlight-card">
+      <h3>✔ Clear Reporting</h3>
+      <p>Professional vulnerability reports with severity ratings, PoC, and actionable remediation steps.</p>
+    </div>
+    <div class="highlight-card">
+      <h3>✔ Always Evolving</h3>
+      <p>Continuously learning, building tools, and staying ahead of modern threats and attack techniques.</p>
+    </div>
+  </div>
 </section>
 
 <footer class="footer">
-  © <span id="year"></span> SharadSAT — Security Analyst & VAPT Specialist
+  © <span id="year"></span> SharadSAT &mdash; Security Analyst &amp; VAPT Specialist &nbsp;·&nbsp;
+  <a href="https://github.com/SharadSAT" target="_blank">GitHub</a>
 </footer>
 
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
