@@ -1,227 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SharadSAT | Security Analyst &amp; VAPT Specialist</title>
-  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
 
-<div id="progress-bar"></div>
-<canvas id="matrix-canvas"></canvas>
+  <header class="navbar">
+    <a href="index.html" class="logo">Sharad<span>SAT</span></a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="labs.html">Labs</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<header class="navbar">
-  <a href="index.html" class="logo">Sharad<span>SAT</span></a>
-  <nav>
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="labs.html">Labs</a></li>
-      <li><a href="dashboard.html">Dashboard</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+  <!-- HERO -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-badge">Security Analyst &amp; VAPT Specialist</div>
 
-<!-- HERO -->
-<section class="hero-section">
-  <div class="hero-content">
-    <div class="hero-badge"><span></span>Available for Security Roles</div>
+      <h1 class="hero-title">
+        Hello, I'm <span class="name">Sharad</span>
+      </h1>
 
-    <h1 class="hero-title">
-      Hello, I'm<br><span class="name">Sharad</span>
-    </h1>
+      <p class="hero-subtitle">
+        <span id="typed-text"></span><span class="typing-cursor"></span>
+      </p>
 
-    <p class="hero-terminal">
-      <span class="prompt">sharad@sec</span><span class="path">:~/</span>$&nbsp;<span id="typed-text"></span><span class="typing-cursor"></span>
-    </p>
+      <p class="hero-text">
+        I help organizations secure their infrastructure through VAPT, threat hunting,
+        SOC engineering, and custom-built automation tools for real-world cyber defense.
+      </p>
 
-    <p class="hero-text">
-      Security Analyst &amp; VAPT Specialist who helps organizations
-      identify vulnerabilities, hunt threats, and build automation tools
-      that make cyber defense faster and smarter.
-    </p>
-
-    <div class="hero-buttons">
-      <a href="projects.html" class="btn primary">⚡ Explore My Tools</a>
-      <a href="about.html" class="btn secondary">About Me</a>
-      <a href="contact.html" class="btn secondary">Get in Touch</a>
+      <div class="hero-buttons">
+        <a href="projects.html" class="btn primary">Explore My Tools</a>
+        <a href="about.html" class="btn secondary">About Me</a>
+        <a href="contact.html" class="btn secondary">Get in Touch</a>
+      </div>
     </div>
+  </section>
 
-    <div class="hero-tags">
-      <span class="hero-tag">VAPT</span>
-      <span class="hero-tag">Threat Hunting</span>
-      <span class="hero-tag">SOC Engineering</span>
-      <span class="hero-tag">Python Automation</span>
-      <span class="hero-tag">Burp Suite</span>
-      <span class="hero-tag">Nmap</span>
-      <span class="hero-tag">MITRE ATT&amp;CK</span>
-      <span class="hero-tag">Wazuh</span>
+  <!-- STATS -->
+  <div class="stats-bar reveal">
+    <div class="stat-item">
+      <div class="stat-number">16</div>
+      <div class="stat-label">Months Experience</div>
     </div>
-  </div>
-</section>
-
-<!-- STATS -->
-<div class="stats-bar reveal">
-  <div class="stat-item">
-    <div class="stat-number" data-target="16">0</div>
-    <div class="stat-label">Months Experience</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-number" data-target="20">0</div>
-    <div class="stat-label">Security Assessments</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-number" data-target="5">0</div>
-    <div class="stat-label">Tools Built</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-number" data-target="20">0</div>
-    <div class="stat-label">Scanning Integrations</div>
-  </div>
-</div>
-
-<!-- WHAT I DO -->
-<section class="section reveal">
-  <h2 class="section-title">What I Do</h2>
-  <p class="section-sub">End-to-end security services from assessment to remediation and automation.</p>
-
-  <div class="highlight-grid">
-    <div class="highlight-card">
-      <h3>🔐 VAPT</h3>
-      <p>Web, API, Network &amp; Cloud penetration testing with full exploitation cycle and professional reporting.</p>
-      <div class="tag-list"><span class="tag">Web</span><span class="tag">API</span><span class="tag">Network</span><span class="tag">Cloud</span></div>
+    <div class="stat-item">
+      <div class="stat-number">20+</div>
+      <div class="stat-label">Security Assessments</div>
     </div>
-    <div class="highlight-card">
-      <h3>🛡 Security Audit</h3>
-      <p>Full infrastructure audits, misconfiguration detection, compliance checks &amp; security posture improvement.</p>
-      <div class="tag-list"><span class="tag">OWASP</span><span class="tag">NIST</span><span class="tag">PCI DSS</span></div>
+    <div class="stat-item">
+      <div class="stat-number">5</div>
+      <div class="stat-label">Tools Built</div>
     </div>
-    <div class="highlight-card">
-      <h3>🎯 Threat Hunting</h3>
-      <p>Detect anomalies, adversary behavior &amp; suspicious events using behavioral patterns &amp; MITRE ATT&amp;CK.</p>
-      <div class="tag-list"><span class="tag">MITRE</span><span class="tag">SIEM</span><span class="tag">Log Analysis</span></div>
-    </div>
-    <div class="highlight-card">
-      <h3>🚨 Insider Threat Detection</h3>
-      <p>Identify privilege misuse, unauthorized access attempts &amp; external attack indicators with forensic reporting.</p>
-      <div class="tag-list"><span class="tag">DLP</span><span class="tag">UAM</span><span class="tag">Forensics</span></div>
-    </div>
-    <div class="highlight-card">
-      <h3>📡 SOC Engineering</h3>
-      <p>Configure &amp; tune detection rules, generate alerts, and coordinate remediation with IT teams.</p>
-      <div class="tag-list"><span class="tag">Wazuh</span><span class="tag">Splunk</span><span class="tag">Alerts</span></div>
-    </div>
-    <div class="highlight-card">
-      <h3>⚡ Security Automation</h3>
-      <p>Build Python tools for scanning, auditing, reporting &amp; continuous monitoring workflows.</p>
-      <div class="tag-list"><span class="tag">Python</span><span class="tag">Bash</span><span class="tag">APIs</span></div>
-    </div>
-    <div class="highlight-card">
-      <h3>🛠 Tool Development</h3>
-      <p>Creator of HexaVault, SpyBees, Browser Security Monitor &amp; internal utilities used in real assessments.</p>
-      <div class="tag-list"><span class="tag">HexaVault</span><span class="tag">SpyBees</span><span class="tag">Open Source</span></div>
-    </div>
-    <div class="highlight-card">
-      <h3>👨‍💼 Technical Leadership</h3>
-      <p>Lead security initiatives, mentor juniors, prepare documentation &amp; improve SOC efficiency.</p>
-      <div class="tag-list"><span class="tag">Leadership</span><span class="tag">Mentoring</span><span class="tag">Docs</span></div>
+    <div class="stat-item">
+      <div class="stat-number">20+</div>
+      <div class="stat-label">Scanning Tools</div>
     </div>
   </div>
-</section>
 
-<footer class="footer">
-  © <span id="year"></span> SharadSAT &nbsp;—&nbsp; Security Analyst &amp; VAPT Specialist &nbsp;·&nbsp;
-  <a href="https://github.com/SharadSAT" target="_blank">github.com/SharadSAT</a>
-</footer>
+  <!-- WHAT I DO -->
+  <section class="section reveal">
+    <h2 class="section-title">What I Do</h2>
+    <p class="section-sub">End-to-end security services from assessment to remediation and automation.</p>
 
-<script>
-// Year
-document.getElementById("year").textContent = new Date().getFullYear();
+    <div class="highlight-grid">
+      <div class="highlight-card">
+        <h3>🔐 VAPT</h3>
+        <p>Web, API, Network &amp; Cloud penetration testing. Full exploitation cycle with professional reporting and remediation guidance.</p>
+        <div class="tag-list"><span class="tag">Web</span><span class="tag">API</span><span class="tag">Network</span><span class="tag">Cloud</span></div>
+      </div>
 
-// Scroll progress bar
-window.addEventListener('scroll', () => {
-  const s = document.documentElement.scrollTop;
-  const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  document.getElementById('progress-bar').style.width = (s / h * 100) + '%';
-});
+      <div class="highlight-card">
+        <h3>🛡 Security Audit &amp; Hardening</h3>
+        <p>Full infrastructure audits, misconfiguration detection, compliance checks &amp; security posture improvement across all layers.</p>
+        <div class="tag-list"><span class="tag">OWASP</span><span class="tag">NIST</span><span class="tag">PCI DSS</span></div>
+      </div>
 
-// Matrix rain
-(function(){
-  const canvas = document.getElementById('matrix-canvas');
-  const ctx = canvas.getContext('2d');
-  let W, H, cols, drops;
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&<>/\\|{}[]';
-  function init(){
-    W = canvas.width = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-    cols = Math.floor(W / 18);
-    drops = Array(cols).fill(1);
-  }
-  init();
-  window.addEventListener('resize', init);
-  function draw(){
-    ctx.fillStyle = 'rgba(2,8,23,0.05)';
-    ctx.fillRect(0,0,W,H);
-    ctx.fillStyle = '#00f0ff';
-    ctx.font = '13px Fira Code, monospace';
-    for(let i=0;i<drops.length;i++){
-      const c = chars[Math.floor(Math.random()*chars.length)];
-      ctx.fillText(c, i*18, drops[i]*18);
-      if(drops[i]*18 > H && Math.random() > 0.975) drops[i] = 0;
-      drops[i]++;
+      <div class="highlight-card">
+        <h3>🎯 Threat Hunting</h3>
+        <p>Detect anomalies, adversary behavior &amp; suspicious events using logs, behavioral patterns &amp; MITRE ATT&amp;CK framework.</p>
+        <div class="tag-list"><span class="tag">MITRE</span><span class="tag">SIEM</span><span class="tag">Log Analysis</span></div>
+      </div>
+
+      <div class="highlight-card">
+        <h3>🚨 Insider &amp; Outsider Threat Detection</h3>
+        <p>Identified privilege misuse, unauthorized access attempts &amp; external attack indicators with detailed forensic reporting.</p>
+        <div class="tag-list"><span class="tag">DLP</span><span class="tag">UAM</span><span class="tag">Forensics</span></div>
+      </div>
+
+      <div class="highlight-card">
+        <h3>📡 SOC Engineering</h3>
+        <p>Configure &amp; tune detection rules, generate alerts, create investigation tasks, and coordinate remediation with IT teams.</p>
+        <div class="tag-list"><span class="tag">Wazuh</span><span class="tag">Splunk</span><span class="tag">Alerts</span></div>
+      </div>
+
+      <div class="highlight-card">
+        <h3>⚡ Automation</h3>
+        <p>Build Python automation tools for scanning, reconciliation, auditing, reporting &amp; continuous monitoring workflows.</p>
+        <div class="tag-list"><span class="tag">Python</span><span class="tag">Bash</span><span class="tag">APIs</span></div>
+      </div>
+
+      <div class="highlight-card">
+        <h3>🛠 Tool Development</h3>
+        <p>Creator of HexaVault, SpyBees, Browser Security Monitor &amp; internal utilities used in real security assessments.</p>
+        <div class="tag-list"><span class="tag">HexaVault</span><span class="tag">SpyBees</span><span class="tag">Open Source</span></div>
+      </div>
+
+      <div class="highlight-card">
+        <h3>👨‍💼 Technical Leadership</h3>
+        <p>Lead security initiatives, mentor juniors, prepare comprehensive documentation &amp; improve SOC operational efficiency.</p>
+        <div class="tag-list"><span class="tag">Leadership</span><span class="tag">Mentoring</span><span class="tag">Docs</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © <span id="year"></span> SharadSAT &mdash; Security Analyst &amp; VAPT Specialist &nbsp;·&nbsp;
+    <a href="https://github.com/SharadSAT" target="_blank">GitHub</a>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const phrases = [
+      "Penetration Tester",
+      "Security Automation Engineer",
+      "Threat Hunter",
+      "SOC Engineer",
+      "Tool Developer"
+    ];
+    let pi = 0, ci = 0, deleting = false;
+    const el = document.getElementById("typed-text");
+    function type() {
+      const word = phrases[pi];
+      el.textContent = deleting ? word.substring(0, ci--) : word.substring(0, ci++);
+      if (!deleting && ci === word.length + 1) { deleting = true; setTimeout(type, 1400); return; }
+      if (deleting && ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
+      setTimeout(type, deleting ? 50 : 90);
     }
-  }
-  setInterval(draw, 45);
-})();
+    type();
 
-// Typing animation
-const phrases = ['run nmap --scan','exploit CVE-2024-xxxx','hunt --mitre T1059','audit infra --full','build HexaVault --ai'];
-let pi=0,ci=0,deleting=false;
-const el = document.getElementById('typed-text');
-function type(){
-  const word = phrases[pi];
-  el.textContent = deleting ? word.substring(0,ci--) : word.substring(0,ci++);
-  if(!deleting && ci===word.length+1){deleting=true;setTimeout(type,1600);return;}
-  if(deleting && ci===0){deleting=false;pi=(pi+1)%phrases.length;}
-  setTimeout(type, deleting?40:85);
-}
-type();
-
-// Counter animation
-function animateCounter(el, target){
-  let current = 0;
-  const duration = 1800;
-  const step = target / (duration / 16);
-  const timer = setInterval(() => {
-    current += step;
-    if(current >= target){
-      el.textContent = target + (target >= 20 ? '+' : '');
-      clearInterval(timer);
-    } else {
-      el.textContent = Math.floor(current);
-    }
-  }, 16);
-}
-
-// Scroll reveal + counter trigger
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if(e.isIntersecting){
-      e.target.classList.add('visible');
-      // trigger skill bars
-      e.target.querySelectorAll('.skill-fill').forEach(b => {
-        b.style.width = b.dataset.width || b.style.width;
-      });
-      // trigger counters
-      e.target.querySelectorAll('.stat-number[data-target]').forEach(n => {
-        animateCounter(n, parseInt(n.dataset.target));
-      });
-    }
-  });
-}, {threshold: 0.15});
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
