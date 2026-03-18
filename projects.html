@@ -1,125 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects &amp; Tools | SharadSAT</title>
-  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
 
-<div id="progress-bar"></div>
-<canvas id="matrix-canvas"></canvas>
-
-<header class="navbar">
-  <a href="index.html" class="logo">Sharad<span>SAT</span></a>
-  <nav>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html" class="active">Projects</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
-
-<section class="hero-section" style="min-height:auto;padding:80px 24px 60px;">
-  <div class="hero-content">
-    <div class="hero-badge"><span></span>Security Arsenal</div>
-    <h1 class="hero-title" style="font-size:clamp(2rem,4vw,3.5rem);">
-      My <span class="name">Tools</span> &amp; Projects
-    </h1>
-    <p class="hero-text">
-      Built for real-world security assessments — recon automation, AI-powered VAPT,
-      browser monitoring, and internal security utilities.
-    </p>
-  </div>
-</section>
-
-<section class="section reveal">
-  <div class="highlight-grid">
-
-    <div class="highlight-card">
-      <h3>🐝 SpyBees</h3>
-      <p>Recon automation tool for asset discovery, exposure detection, and continuous attack surface monitoring.</p>
-      <div class="tag-list"><span class="tag">Recon</span><span class="tag">OSINT</span><span class="tag">Python</span></div>
-      <a class="btn secondary project-btn">Coming Soon</a>
-    </div>
-
-    <div class="highlight-card">
-      <h3>⚙ Nuclia Helper Scripts</h3>
-      <p>Internal utilities for Nuclei template management, finding prioritization, and streamlining security reporting.</p>
-      <div class="tag-list"><span class="tag">Nuclei</span><span class="tag">Automation</span><span class="tag">Internal</span></div>
-      <a class="btn secondary project-btn">Private Tool</a>
-    </div>
-
-    <div class="highlight-card" style="border-color:rgba(0,240,255,0.3);grid-column:span 2;">
-      <h3>🔐 HexaVault — AI-Powered VAPT Platform</h3>
-      <p>
-        Full-stack security audit platform orchestrating <strong>20+ scanning tools</strong>
-        (Nmap, Nuclei, Nikto, OpenVAS, SQLMap, Subfinder) through a unified dashboard.
-        Features an <strong>AI Co-Pilot</strong> for chat-based scan control, automated exploit
-        validation (SQLi, XSS, SSRF, IDOR, CORS), attack path detection, and enterprise PDF
-        reports with OWASP/PCI DSS/NIST/ISO 27001 compliance mapping.
-      </p>
-      <ul style="color:var(--text-soft);margin:14px 0;padding-left:20px;font-size:0.92rem;line-height:2.1;">
-        <li>Real-time WebSocket dashboard with live scan progress</li>
-        <li>Confidence scoring (12-signal formula) + false-positive filtering</li>
-        <li>Correlation engine — groups findings across multiple scanners</li>
-        <li>Docker-based — deploys in one command</li>
+  <header class="navbar">
+    <a href="index.html" class="logo">Sharad<span>SAT</span></a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
-      <div class="tag-list" style="margin-bottom:18px;">
-        <span class="tag">AI</span><span class="tag">VAPT</span><span class="tag">Docker</span>
-        <span class="tag">Nmap</span><span class="tag">Nuclei</span><span class="tag">SQLMap</span>
-        <span class="tag">OWASP</span><span class="tag">ISO 27001</span>
-      </div>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;">
-        <a class="btn secondary project-btn">Private — Access on Request</a>
-        <a class="btn primary project-btn" href="https://github.com/SharadSAT/SharadSAT/issues/new?title=Access+Request:+HexaVault&body=**Name:**%0A**Organization:**%0A**Use+case:**%0A**Contact+email:**" target="_blank">Request Access</a>
-      </div>
-    </div>
+    </nav>
+  </header>
 
-    <div class="highlight-card" style="grid-column:span 2;">
-      <h3>🌐 Browser Security Monitor</h3>
-      <p>
-        Chrome &amp; Firefox extension tracking file uploads (drag-drop, paste, fetch, XHR),
-        downloads, and page visits. Logs structured JSON to a local file for SIEM integration
-        with zero cloud dependency.
+  <section class="hero-section" style="min-height: auto; padding: 80px 24px 60px;">
+    <div class="hero-content">
+      <div class="hero-badge">Security Tools &amp; Projects</div>
+      <h1 class="hero-title" style="font-size: clamp(2rem, 4vw, 3rem);">
+        My <span class="name">Security</span> Arsenal
+      </h1>
+      <p class="hero-text">
+        Tools developed for real-world security assessments, recon automation,
+        asset discovery, exposure detection, and improving internal audit posture.
       </p>
-      <div class="tag-list" style="margin-bottom:18px;">
-        <span class="tag">Chrome</span><span class="tag">Firefox</span><span class="tag">Extension</span>
-        <span class="tag">SIEM</span><span class="tag">DLP</span><span class="tag">Open Source</span>
-      </div>
-      <a class="btn primary project-btn" href="https://github.com/SharadSAT/browser-monitor" target="_blank">View on GitHub</a>
     </div>
+  </section>
 
-  </div>
-</section>
+  <section class="section reveal">
+    <div class="highlight-grid">
 
-<footer class="footer">
-  © <span id="year"></span> SharadSAT &nbsp;—&nbsp; Security Analyst &amp; VAPT Specialist &nbsp;·&nbsp;
-  <a href="https://github.com/SharadSAT" target="_blank">github.com/SharadSAT</a>
-</footer>
+      <div class="highlight-card">
+        <h3>🐝 SpyBees</h3>
+        <p>Recon automation tool for asset discovery, exposure detection, and continuous monitoring across attack surfaces.</p>
+        <div class="tag-list"><span class="tag">Recon</span><span class="tag">OSINT</span><span class="tag">Python</span></div>
+        <a class="btn secondary project-btn">Coming Soon</a>
+      </div>
 
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-window.addEventListener('scroll',()=>{
-  const s=document.documentElement.scrollTop;
-  const h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
-  document.getElementById('progress-bar').style.width=(s/h*100)+'%';
-});
-(function(){
-  const canvas=document.getElementById('matrix-canvas');
-  const ctx=canvas.getContext('2d');
-  let W,H,cols,drops;
-  const chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&<>/\\|{}[]';
-  function init(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;cols=Math.floor(W/18);drops=Array(cols).fill(1);}
-  init();window.addEventListener('resize',init);
-  function draw(){ctx.fillStyle='rgba(2,8,23,0.05)';ctx.fillRect(0,0,W,H);ctx.fillStyle='#00f0ff';ctx.font='13px Fira Code,monospace';for(let i=0;i<drops.length;i++){const c=chars[Math.floor(Math.random()*chars.length)];ctx.fillText(c,i*18,drops[i]*18);if(drops[i]*18>H&&Math.random()>0.975)drops[i]=0;drops[i]++;}}
-  setInterval(draw,45);
-})();
-const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-</script>
+      <div class="highlight-card">
+        <h3>⚙ Nuclia Helper Scripts</h3>
+        <p>Internal utilities for Nuclei template management, finding prioritization, and streamlining security reporting workflows.</p>
+        <div class="tag-list"><span class="tag">Nuclei</span><span class="tag">Automation</span><span class="tag">Internal</span></div>
+        <a class="btn secondary project-btn">Private Tool</a>
+      </div>
+
+      <div class="highlight-card" style="border-color: rgba(0,229,255,0.3); grid-column: span 2;">
+        <h3>🔐 HexaVault — AI-Powered VAPT Platform</h3>
+        <p>
+          Full-stack security audit platform that orchestrates <strong>20+ scanning tools</strong>
+          (Nmap, Nuclei, Nikto, OpenVAS, SQLMap, Subfinder and more) through a unified dashboard.
+          Features an <strong>AI Co-Pilot</strong> for chat-based scan control, automated exploit
+          validation (SQLi, XSS, SSRF, IDOR, CORS), attack path detection, pentest memory,
+          and enterprise PDF reports with OWASP/PCI DSS/NIST/ISO 27001 compliance mapping.
+        </p>
+        <ul style="color: var(--text-soft); margin: 14px 0; padding-left: 20px; font-size: 0.93rem; line-height: 2;">
+          <li>Real-time WebSocket dashboard with live scan progress</li>
+          <li>Confidence scoring (12-signal formula) + false-positive filtering</li>
+          <li>Correlation engine — groups findings across multiple scanners</li>
+          <li>Webhook &amp; scheduler support for automated recurring audits</li>
+          <li>Docker-based — deploys in one command</li>
+        </ul>
+        <div class="tag-list" style="margin-bottom: 16px;">
+          <span class="tag">AI</span><span class="tag">VAPT</span><span class="tag">Docker</span>
+          <span class="tag">Nmap</span><span class="tag">Nuclei</span><span class="tag">SQLMap</span>
+          <span class="tag">OWASP</span><span class="tag">ISO 27001</span>
+        </div>
+        <div style="display:flex; gap: 12px; flex-wrap: wrap;">
+          <a class="btn secondary project-btn">Private — Access on Request</a>
+          <a class="btn primary project-btn"
+             href="https://github.com/SharadSAT/SharadSAT/issues/new?title=Access+Request:+HexaVault&body=**Name:**%0A**Organization:**%0A**Use+case:**%0A**Contact+email:**"
+             target="_blank">Request Access</a>
+        </div>
+      </div>
+
+      <div class="highlight-card" style="grid-column: span 2;">
+        <h3>🌐 Browser Security Monitor</h3>
+        <p>
+          Chrome &amp; Firefox extension that tracks file uploads (drag-drop, paste, fetch, XHR),
+          downloads, and page visits across all websites. Logs structured JSON to a local file
+          for SIEM integration. Lightweight native host with zero cloud dependency.
+        </p>
+        <div class="tag-list" style="margin-bottom: 16px;">
+          <span class="tag">Chrome</span><span class="tag">Firefox</span><span class="tag">Extension</span>
+          <span class="tag">SIEM</span><span class="tag">DLP</span><span class="tag">Open Source</span>
+        </div>
+        <a class="btn primary project-btn" href="https://github.com/SharadSAT/browser-monitor" target="_blank">View on GitHub</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    © <span id="year"></span> SharadSAT &mdash; Security Analyst &amp; VAPT Specialist &nbsp;·&nbsp;
+    <a href="https://github.com/SharadSAT" target="_blank">GitHub</a>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
