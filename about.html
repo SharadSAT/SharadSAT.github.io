@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About | SharadSAT</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 <body>
+
+<div id="progress-bar"></div>
+<canvas id="matrix-canvas"></canvas>
 
 <header class="navbar">
   <a href="index.html" class="logo">Sharad<span>SAT</span></a>
@@ -20,70 +23,67 @@
   </nav>
 </header>
 
-<section class="hero-section" style="min-height: auto; padding: 80px 24px 60px;">
+<section class="hero-section" style="min-height:auto;padding:80px 24px 60px;">
   <div class="hero-content">
-    <div class="hero-badge">About Me</div>
-    <h1 class="hero-title" style="font-size: clamp(2rem, 4vw, 3rem);">
-      Security Analyst &amp; <span class="name">VAPT Specialist</span>
+    <div class="hero-badge"><span></span>Security Professional</div>
+    <h1 class="hero-title" style="font-size:clamp(2rem,4vw,3.5rem);">
+      About <span class="name">Me</span>
     </h1>
     <p class="hero-text">
-      I'm <strong style="color: var(--text);">Sharad</strong>, a hands-on security professional with real-world experience
-      identifying vulnerabilities, conducting penetration tests, and building automation tools
-      that streamline cyber defense operations. I combine technical depth with practical execution.
+      I'm <strong style="color:var(--text);">Sharad</strong> — a hands-on security professional
+      with 16 months of real-world experience in VAPT, threat hunting, SOC operations,
+      and building automation tools that accelerate cyber defense.
     </p>
   </div>
 </section>
 
 <section class="section dark reveal">
   <h2 class="section-title">Technical Skills</h2>
-  <p class="section-sub">Core competencies built through real-world engagements.</p>
-
-  <div class="highlight-grid" style="max-width: 900px; margin: 0 auto;">
+  <p class="section-sub">Built through real-world engagements, not just labs.</p>
+  <div class="highlight-grid" style="max-width:960px;margin:0 auto;">
     <div class="highlight-card">
-      <h3>Offensive Security</h3>
+      <h3>⚔ Offensive Security</h3>
       <div class="skill-item">
         <div class="skill-header"><span>Web &amp; API Penetration Testing</span><span class="skill-pct">90%</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:90%;"></div></div>
       </div>
       <div class="skill-item">
         <div class="skill-header"><span>Network &amp; Infra VAPT</span><span class="skill-pct">85%</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:85%;"></div></div>
       </div>
       <div class="skill-item">
         <div class="skill-header"><span>Exploit Validation &amp; PoC</span><span class="skill-pct">80%</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width: 80%;"></div></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:80%;"></div></div>
       </div>
     </div>
-
     <div class="highlight-card">
-      <h3>Defensive Security</h3>
+      <h3>🛡 Defensive Security</h3>
       <div class="skill-item">
         <div class="skill-header"><span>SOC Operations &amp; Alert Tuning</span><span class="skill-pct">88%</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width: 88%;"></div></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:88%;"></div></div>
       </div>
       <div class="skill-item">
         <div class="skill-header"><span>Threat Hunting &amp; Detection</span><span class="skill-pct">82%</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width: 82%;"></div></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:82%;"></div></div>
       </div>
       <div class="skill-item">
         <div class="skill-header"><span>SIEM &amp; Log Analysis</span><span class="skill-pct">85%</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:85%;"></div></div>
       </div>
     </div>
-
     <div class="highlight-card">
-      <h3>Development &amp; Automation</h3>
+      <h3>⚡ Development &amp; Automation</h3>
       <div class="skill-item">
         <div class="skill-header"><span>Python Security Tooling</span><span class="skill-pct">88%</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width: 88%;"></div></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:88%;"></div></div>
       </div>
       <div class="skill-item">
         <div class="skill-header"><span>Bash &amp; Scripting</span><span class="skill-pct">80%</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width: 80%;"></div></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:80%;"></div></div>
       </div>
       <div class="skill-item">
         <div class="skill-header"><span>API &amp; Web Automation</span><span class="skill-pct">82%</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width: 82%;"></div></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:82%;"></div></div>
       </div>
     </div>
   </div>
@@ -92,8 +92,8 @@
 <section class="section reveal">
   <h2 class="section-title">Tools &amp; Technologies</h2>
   <p class="section-sub">Platforms and tools used across real security engagements.</p>
-  <div style="max-width: 860px; margin: 0 auto;">
-    <div class="tag-list" style="justify-content: center; gap: 10px;">
+  <div style="max-width:860px;margin:0 auto;">
+    <div class="tag-list" style="justify-content:center;gap:10px;">
       <span class="tag">Nmap</span><span class="tag">Nuclei</span><span class="tag">Nikto</span>
       <span class="tag">Burp Suite</span><span class="tag">SQLMap</span><span class="tag">Subfinder</span>
       <span class="tag">OpenVAS</span><span class="tag">Metasploit</span><span class="tag">Wazuh</span>
@@ -107,38 +107,57 @@
 
 <section class="section dark reveal">
   <h2 class="section-title">Why Work With Me?</h2>
-  <p class="section-sub">What sets me apart in real security engagements.</p>
-  <div class="highlight-grid" style="max-width: 900px; margin: 0 auto;">
+  <p class="section-sub">What sets me apart in real engagements.</p>
+  <div class="highlight-grid" style="max-width:960px;margin:0 auto;">
     <div class="highlight-card">
       <h3>✔ Practical Depth</h3>
-      <p>Strong hands-on understanding of both offensive and defensive security — not just theory.</p>
+      <p>Strong hands-on understanding of both offensive and defensive security — not just theory, real execution.</p>
     </div>
     <div class="highlight-card">
       <h3>✔ Automation First</h3>
-      <p>I automate repetitive security tasks, so teams can focus on high-value analysis and response.</p>
+      <p>I automate repetitive security tasks so teams can focus on high-value analysis and faster response.</p>
     </div>
     <div class="highlight-card">
       <h3>✔ Clear Reporting</h3>
-      <p>Professional vulnerability reports with severity ratings, PoC, and actionable remediation steps.</p>
+      <p>Professional vulnerability reports with severity ratings, proof-of-concept, and actionable remediation steps.</p>
     </div>
     <div class="highlight-card">
       <h3>✔ Always Evolving</h3>
-      <p>Continuously learning, building tools, and staying ahead of modern threats and attack techniques.</p>
+      <p>Continuously building tools, learning new attack techniques, and staying ahead of modern threats.</p>
     </div>
   </div>
 </section>
 
 <footer class="footer">
-  © <span id="year"></span> SharadSAT &mdash; Security Analyst &amp; VAPT Specialist &nbsp;·&nbsp;
-  <a href="https://github.com/SharadSAT" target="_blank">GitHub</a>
+  © <span id="year"></span> SharadSAT &nbsp;—&nbsp; Security Analyst &amp; VAPT Specialist &nbsp;·&nbsp;
+  <a href="https://github.com/SharadSAT" target="_blank">github.com/SharadSAT</a>
 </footer>
 
 <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.getElementById("year").textContent = new Date().getFullYear();
+window.addEventListener('scroll',()=>{
+  const s=document.documentElement.scrollTop;
+  const h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+  document.getElementById('progress-bar').style.width=(s/h*100)+'%';
+});
+(function(){
+  const canvas=document.getElementById('matrix-canvas');
+  const ctx=canvas.getContext('2d');
+  let W,H,cols,drops;
+  const chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&<>/\\|{}[]';
+  function init(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;cols=Math.floor(W/18);drops=Array(cols).fill(1);}
+  init();window.addEventListener('resize',init);
+  function draw(){ctx.fillStyle='rgba(2,8,23,0.05)';ctx.fillRect(0,0,W,H);ctx.fillStyle='#00f0ff';ctx.font='13px Fira Code,monospace';for(let i=0;i<drops.length;i++){const c=chars[Math.floor(Math.random()*chars.length)];ctx.fillText(c,i*18,drops[i]*18);if(drops[i]*18>H&&Math.random()>0.975)drops[i]=0;drops[i]++;}}
+  setInterval(draw,45);
+})();
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+    }
+  });
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
 </body>
 </html>
