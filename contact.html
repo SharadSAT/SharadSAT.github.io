@@ -6,61 +6,77 @@
   <title>Contact | SharadSAT</title>
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-
 <body>
 
-  <!-- Navbar -->
   <header class="navbar">
-    <div class="logo">Sharad<span>SAT</span></div>
+    <a href="index.html" class="logo">Sharad<span>SAT</span></a>
     <nav>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html" style="color: var(--accent)">Contact</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- CONTACT SECTION -->
-<section class="section">
-  <h1 class="section-title">Get in Touch</h1>
+  <section class="hero-section" style="min-height: auto; padding: 80px 24px 60px;">
+    <div class="hero-content">
+      <div class="hero-badge">Get In Touch</div>
+      <h1 class="hero-title" style="font-size: clamp(2rem, 4vw, 3rem);">
+        Let's <span class="name">Connect</span>
+      </h1>
+      <p class="hero-text">
+        Looking for a security engineer who delivers real results? Whether it's VAPT, threat analysis,
+        automation tooling, or consulting — I'd love to hear about your challenge.
+      </p>
+    </div>
+  </section>
 
-  <p style="max-width: 800px; margin: auto; text-align: center; color: var(--text-soft); font-size: 1.1rem;">
-    If you're looking for a security engineer who can strengthen your organization’s security posture through
-    VAPT, threat analysis, automation tooling, and real-world cyber defense, I’d be glad to discuss how I can contribute.
-    <br><br>
-    I’m open to cybersecurity roles, consulting engagements, and opportunities where I can apply my skills 
-    to solve complex security challenges and deliver measurable impact.
-    <br><br>
-    Let’s connect and explore how we can work together.
-  </p>
+  <section class="section reveal">
+    <div class="highlight-grid" style="max-width: 860px; margin: 0 auto; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
 
-  <div class="highlight-grid" style="margin-top: 50px;">
+      <div class="contact-card">
+        <span class="contact-icon">📩</span>
+        <h3>Email</h3>
+        <a href="mailto:yourname@email.com">yourname@email.com</a>
+      </div>
 
-    <div class="highlight-card">
-      <h3>📩 Email</h3>
-      <p>yourname@email.com</p>
+      <div class="contact-card">
+        <span class="contact-icon">💻</span>
+        <h3>GitHub</h3>
+        <a href="https://github.com/SharadSAT" target="_blank">github.com/SharadSAT</a>
+      </div>
+
+      <div class="contact-card">
+        <span class="contact-icon">🔗</span>
+        <h3>LinkedIn</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Add your LinkedIn</p>
+      </div>
+
     </div>
 
-    <div class="highlight-card">
-      <h3>💻 GitHub</h3>
-      <a href="https://github.com/SharadSAT" target="_blank" style="color: var(--accent);">
-        github.com/SharadSAT
-      </a>
+    <div style="max-width: 700px; margin: 56px auto 0; text-align: center;">
+      <p style="color: var(--text-soft); font-size: 1rem; line-height: 1.9;">
+        I'm open to <strong style="color: var(--text);">cybersecurity roles</strong>,
+        <strong style="color: var(--text);">consulting engagements</strong>, and
+        <strong style="color: var(--text);">collaborative security projects</strong>
+        where I can apply my skills to solve complex security challenges and deliver measurable impact.
+      </p>
     </div>
+  </section>
 
-    <div class="highlight-card">
-      <h3>🔗 LinkedIn</h3>
-      <p>Add your LinkedIn link here</p>
-    </div>
-
-  </div>
-</section>
-  <!-- FOOTER -->
   <footer class="footer">
-    © <span id="year"></span> SharadSAT — Security Analyst & VAPT Specialist
+    © <span id="year"></span> SharadSAT &mdash; Security Analyst &amp; VAPT Specialist &nbsp;·&nbsp;
+    <a href="https://github.com/SharadSAT" target="_blank">GitHub</a>
   </footer>
 
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
