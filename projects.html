@@ -194,8 +194,9 @@
           <span class="tag">OWASP</span><span class="tag">ISO 27001</span>
         </div>
         <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <button class="btn primary project-btn" onclick="openHexaModal()" style="cursor:pointer;border:none;font-family:inherit;">▶ See How It Works</button>
           <a class="btn secondary project-btn">Private — Access on Request</a>
-          <a class="btn primary project-btn"
+          <a class="btn secondary project-btn"
              href="https://github.com/SharadSAT/SharadSAT/issues/new?title=Access+Request:+HexaVault&body=**Name:**%0A**Organization:**%0A**Use+case:**%0A**Contact+email:**"
              target="_blank">Request Access</a>
         </div>
@@ -388,6 +389,188 @@
       document.getElementById('fp-' + id).classList.add('vis');
       const map = { b:'ab', e:'ae', r:'ar', d:'ad' };
       document.getElementById('t' + id).classList.add(map[id]);
+    }
+  </script>
+
+  <!-- ══ HEXAVAULT MODAL ══ -->
+  <div class="modal-overlay" id="hexaModal" onclick="closeHexaOnBg(event)">
+    <div class="modal-box" style="border-color:rgba(0,229,255,.25);">
+      <button class="modal-close" onclick="closeHexaModal()">✕ Close</button>
+
+      <div style="margin-bottom:26px;">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#00e5ff;margin-bottom:8px;">HexaVault — Enterprise Security Platform</div>
+        <div style="font-size:21px;font-weight:900;color:#f1f5f9;line-height:1.3;">Click a section to explore<br>the platform</div>
+      </div>
+
+      <div class="stabs">
+        <button class="stab" id="hta" onclick="showHexaTab('a')"><span class="si">🏗️</span><div class="st">Architecture</div></button>
+        <button class="stab" id="htb" onclick="showHexaTab('b')"><span class="si">🔍</span><div class="st">Scan Flow</div></button>
+        <button class="stab" id="htc" onclick="showHexaTab('c')"><span class="si">🛠️</span><div class="st">Tools & Stack</div></button>
+        <button class="stab" id="htd" onclick="showHexaTab('d')"><span class="si">🤖</span><div class="st">AI Co-Pilot</div></button>
+      </div>
+
+      <!-- ARCHITECTURE -->
+      <div class="fpanel" id="hfp-a">
+        <div class="fptitle">🏗️ <span style="color:#00e5ff">Architecture</span> — Docker-based, production-ready platform</div>
+        <div class="frow">
+          <div class="fstep"><div class="fbox blue"><span class="fi">🌐</span><div class="fl">Nginx Gateway</div><div class="fs">Reverse proxy, port 8080, SSL termination</div></div></div>
+          <div class="farr">→</div>
+          <div class="fstep">
+            <div class="bwrap">
+              <div class="brow"><div class="fbox blue" style="width:115px"><span class="fi">⚡</span><div class="fl">FastAPI Backend</div><div class="fs">REST API, 64 endpoints, Pydantic schemas</div></div></div>
+              <div class="brow"><div class="fbox" style="width:115px"><span class="fi">🖥️</span><div class="fl">Web Dashboard</div><div class="fs">Real-time scan management UI</div></div></div>
+            </div>
+          </div>
+          <div class="farr">→</div>
+          <div class="fstep"><div class="fbox yellow"><span class="fi">📋</span><div class="fl">Redis Queue</div><div class="fs">Per-tool job queues, persistent, BRPOP worker</div></div></div>
+          <div class="farr">→</div>
+          <div class="fstep"><div class="fbox green"><span class="fi">⚙️</span><div class="fl">Worker</div><div class="fs">Dispatches jobs to 9 scanning tools</div></div></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:16px;">
+          <div class="exbox" style="border-left:3px solid #38bdf8;margin:0;">
+            <div class="extitle" style="color:#38bdf8;">🗄️ PostgreSQL</div>
+            <div style="font-size:11px;color:#94a3b8;">Scans, findings, credentials, job history</div>
+          </div>
+          <div class="exbox" style="border-left:3px solid #fbbf24;margin:0;">
+            <div class="extitle" style="color:#fbbf24;">📦 MinIO</div>
+            <div style="font-size:11px;color:#94a3b8;">Object storage for reports (PDF, HTML, JSON, CSV)</div>
+          </div>
+          <div class="exbox" style="border-left:3px solid #34d399;margin:0;">
+            <div class="extitle" style="color:#34d399;">🔐 Fernet Crypto</div>
+            <div style="font-size:11px;color:#94a3b8;">Encrypted credential storage with scope-based auto-injection</div>
+          </div>
+        </div>
+        <div class="logbox" style="margin-top:14px;">
+          <span style="color:#00e5ff">$ docker compose up -d --build</span><br>
+          <span style="color:#475569">✓ nginx        running  :8080</span><br>
+          <span style="color:#475569">✓ api          running  (internal)</span><br>
+          <span style="color:#475569">✓ worker       running  (internal)</span><br>
+          <span style="color:#475569">✓ postgres      running  (internal)</span><br>
+          <span style="color:#475569">✓ redis         running  (internal)</span><br>
+          <span style="color:#34d399">✓ All services healthy — dashboard at localhost:8080</span>
+        </div>
+      </div>
+
+      <!-- SCAN FLOW -->
+      <div class="fpanel" id="hfp-b">
+        <div class="fptitle">🔍 <span style="color:#34d399">Scan Flow</span> — Queue a scan, tools run in parallel, findings aggregated</div>
+        <div class="frow">
+          <div class="fstep"><div class="fbox blue"><span class="fi">🎯</span><div class="fl">Submit Target</div><div class="fs">Domain, IP, or URL via API or dashboard</div></div></div>
+          <div class="farr">→</div>
+          <div class="fstep"><div class="fbox yellow"><span class="fi">📋</span><div class="fl">Scan Type</div><div class="fs">Quick / Standard / Full / Custom</div></div></div>
+          <div class="farr">→</div>
+          <div class="fstep"><div class="fbox"><span class="fi">⚙️</span><div class="fl">Jobs Queued</div><div class="fs">Per-tool jobs pushed to Redis queues</div></div></div>
+          <div class="farr">→</div>
+          <div class="fstep"><div class="fbox green"><span class="fi">🔍</span><div class="fl">Tools Execute</div><div class="fs">Nmap, Nuclei, OpenVAS... run in parallel</div></div></div>
+          <div class="farr">→</div>
+          <div class="fstep"><div class="fbox blue"><span class="fi">📊</span><div class="fl">Findings</div><div class="fs">Normalized, severity-classified, deduplicated</div></div></div>
+        </div>
+        <div class="exbox" style="border-left:3px solid #34d399;margin-top:16px;">
+          <div class="extitle" style="color:#34d399;">📖 Scan Types</div>
+          <div class="exline"><span>⚡</span><strong style="color:#cbd5e1">Quick:</strong> Nmap + WhatWeb — fast recon in minutes</div>
+          <div class="exline"><span>🔍</span><strong style="color:#cbd5e1">Standard:</strong> Nmap + Dirsearch + WhatWeb + Nikto + Subfinder</div>
+          <div class="exline"><span>💥</span><strong style="color:#cbd5e1">Full:</strong> All 9 tools — Nmap, Nuclei, OpenVAS, Dirsearch, WhatWeb, Nikto, Wayback, Subfinder, JSScan</div>
+          <div class="exline"><span>⚙️</span><strong style="color:#cbd5e1">Custom:</strong> User selects any combination of tools</div>
+        </div>
+        <div class="logbox" style="margin-top:12px;">
+          <span style="color:#00e5ff">POST /api/v1/scans</span><span style="color:#475569">  →  {"scan_id": "abc123", "status": "queued"}</span><br>
+          <span style="color:#00e5ff">GET  /api/v1/scans/abc123/progress</span><span style="color:#475569">  →  {"progress": 67, "jobs_done": 6}</span><br>
+          <span style="color:#34d399">GET  /api/v1/scans/abc123/findings</span><span style="color:#475569">  →  [{"severity":"HIGH","tool":"nuclei",...}]</span>
+        </div>
+      </div>
+
+      <!-- TOOLS & STACK -->
+      <div class="fpanel" id="hfp-c">
+        <div class="fptitle">🛠️ <span style="color:#fbbf24">Tools & Stack</span> — 9 scanners, enterprise infrastructure</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;">
+          <div>
+            <div style="font-size:11px;font-weight:700;color:#fbbf24;margin-bottom:10px;text-transform:uppercase;letter-spacing:1px;">Scanning Tools</div>
+            <div class="exline" style="font-size:12px;color:#94a3b8;line-height:2;display:block;">
+              🗺️ <strong style="color:#cbd5e1">Nmap</strong> — Port scanning, service detection<br>
+              ⚡ <strong style="color:#cbd5e1">Nuclei</strong> — Template-based vulnerability detection<br>
+              🛡️ <strong style="color:#cbd5e1">OpenVAS</strong> — Full vulnerability assessment<br>
+              📁 <strong style="color:#cbd5e1">Dirsearch</strong> — Directory & file enumeration<br>
+              🌐 <strong style="color:#cbd5e1">WhatWeb</strong> — Technology fingerprinting<br>
+              🔍 <strong style="color:#cbd5e1">Nikto</strong> — Web server misconfiguration scan<br>
+              📚 <strong style="color:#cbd5e1">Wayback</strong> — Historical endpoint discovery<br>
+              🔎 <strong style="color:#cbd5e1">Subfinder</strong> — Subdomain enumeration<br>
+              📜 <strong style="color:#cbd5e1">JSScan</strong> — JavaScript secrets & endpoint analysis
+            </div>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:700;color:#38bdf8;margin-bottom:10px;text-transform:uppercase;letter-spacing:1px;">Tech Stack</div>
+            <div style="font-size:12px;color:#94a3b8;line-height:2;">
+              ⚡ <strong style="color:#cbd5e1">FastAPI</strong> — REST API backend<br>
+              🌐 <strong style="color:#cbd5e1">Flask + WebBox</strong> — Standalone web scanner<br>
+              📋 <strong style="color:#cbd5e1">Redis</strong> — Job queue (BRPOP pattern)<br>
+              🗄️ <strong style="color:#cbd5e1">PostgreSQL</strong> — Primary database<br>
+              📦 <strong style="color:#cbd5e1">MinIO</strong> — Report object storage<br>
+              🔐 <strong style="color:#cbd5e1">Fernet</strong> — Credential encryption<br>
+              🐳 <strong style="color:#cbd5e1">Docker Compose</strong> — One-command deploy<br>
+              🌐 <strong style="color:#cbd5e1">Nginx</strong> — Reverse proxy + network isolation<br>
+              🤖 <strong style="color:#cbd5e1">Ollama LLM</strong> — Local AI Co-Pilot
+            </div>
+          </div>
+        </div>
+        <div class="logbox">
+          <span style="color:#fbbf24">Network isolation: 3 Docker networks</span><br>
+          <span style="color:#475569">dmz_network     → Nginx (public-facing)</span><br>
+          <span style="color:#475569">internal_network → API, DB, Redis, MinIO</span><br>
+          <span style="color:#475569">scanner_network  → Worker + all scanning tools</span>
+        </div>
+      </div>
+
+      <!-- AI CO-PILOT -->
+      <div class="fpanel" id="hfp-d">
+        <div class="fptitle">🤖 <span style="color:#a78bfa">AI Co-Pilot</span> — Local Ollama LLM explains findings and suggests fixes</div>
+        <div class="frow">
+          <div class="fstep"><div class="fbox blue"><span class="fi">📊</span><div class="fl">Scan Complete</div><div class="fs">Findings aggregated from all tools</div></div></div>
+          <div class="farr">→</div>
+          <div class="fstep"><div class="fbox purple"><span class="fi">🤖</span><div class="fl">AI Analyzes</div><div class="fs">Local Ollama LLM processes findings</div></div></div>
+          <div class="farr">→</div>
+          <div class="fstep"><div class="fbox yellow"><span class="fi">💯</span><div class="fl">Confidence Score</div><div class="fs">Scores each finding, filters false positives</div></div></div>
+          <div class="farr">→</div>
+          <div class="fstep"><div class="fbox"><span class="fi">🔧</span><div class="fl">Remediation</div><div class="fs">Explains the risk + suggests exact fix</div></div></div>
+          <div class="farr">→</div>
+          <div class="fstep"><div class="fbox green"><span class="fi">📄</span><div class="fl">Report</div><div class="fs">PDF/HTML/JSON/CSV with AI insights</div></div></div>
+        </div>
+        <div class="exbox" style="border-left:3px solid #a78bfa;margin-top:16px;">
+          <div class="extitle" style="color:#a78bfa;">📖 What AI Co-Pilot Does</div>
+          <div class="exline"><span>🔍</span> Reads all findings from all 9 scanning tools</div>
+          <div class="exline"><span>🔄</span> Removes duplicate findings across tools automatically</div>
+          <div class="exline"><span>💯</span> Scores confidence — separates real issues from false positives</div>
+          <div class="exline"><span>📝</span> Explains each vulnerability in plain English</div>
+          <div class="exline"><span>🔧</span> Suggests specific remediation steps for each finding</div>
+          <div class="exline"><span>📊</span> Maps findings to OWASP Top 10 / CVE / severity levels</div>
+        </div>
+        <div class="logbox" style="margin-top:12px;">
+          <span style="color:#a78bfa">AI Analysis: CVE-2023-XXXX (HIGH) — SQL Injection detected</span><br>
+          <span style="color:#475569">Confidence: 94% | Tool: Nuclei + SQLMap correlation</span><br>
+          <span style="color:#475569">Risk: Attacker can dump entire database via unsanitized input</span><br>
+          <span style="color:#34d399">Fix: Use parameterized queries — example: cursor.execute("SELECT * FROM users WHERE id = %s", (user_id,))</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function openHexaModal() {
+      document.getElementById('hexaModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      showHexaTab('a');
+    }
+    function closeHexaModal() {
+      document.getElementById('hexaModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function closeHexaOnBg(e) { if (e.target.id === 'hexaModal') closeHexaModal(); }
+    function showHexaTab(id) {
+      document.querySelectorAll('[id^="hfp-"]').forEach(p => p.classList.remove('vis'));
+      document.querySelectorAll('[id^="ht"]').forEach(b => { b.className = 'stab'; });
+      document.getElementById('hfp-' + id).classList.add('vis');
+      const map = { a:'ad', b:'ae', c:'ab', d:'ar' };
+      document.getElementById('ht' + id).classList.add(map[id]);
     }
   </script>
 </body>
