@@ -5,6 +5,129 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects &amp; Tools | SharadSAT</title>
   <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    /* ── MODAL OVERLAY ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.85);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 30px 16px;
+      overflow-y: auto;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: #0d1117;
+      border: 1px solid rgba(56,189,248,.25);
+      border-radius: 20px;
+      padding: 32px;
+      width: 100%;
+      max-width: 900px;
+      position: relative;
+      animation: popIn .25s ease;
+    }
+    @keyframes popIn { from{opacity:0;transform:scale(.96)} to{opacity:1;transform:scale(1)} }
+    .modal-close {
+      position: absolute;
+      top: 16px; right: 20px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.1);
+      color: #94a3b8;
+      border-radius: 8px;
+      padding: 4px 12px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      transition: background .2s;
+    }
+    .modal-close:hover { background: rgba(255,255,255,.14); }
+
+    /* ── SCENARIO TABS ── */
+    .scenario-tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 26px;
+    }
+    .stab {
+      flex: 1;
+      min-width: 130px;
+      background: rgba(255,255,255,.04);
+      border: 2px solid rgba(255,255,255,.08);
+      border-radius: 12px;
+      padding: 14px 10px;
+      cursor: pointer;
+      text-align: center;
+      transition: all .2s;
+      font-family: inherit;
+    }
+    .stab:hover { background: rgba(255,255,255,.08); }
+    .stab .s-icon { font-size: 22px; display: block; margin-bottom: 6px; }
+    .stab .s-title { font-size: 12px; font-weight: 800; color: #cbd5e1; }
+    .stab.active-block   { border-color:#f87171; box-shadow:0 0 16px -4px #f87171; }
+    .stab.active-exception { border-color:#34d399; box-shadow:0 0 16px -4px #34d399; }
+    .stab.active-revoke  { border-color:#a78bfa; box-shadow:0 0 16px -4px #a78bfa; }
+    .stab.active-deploy  { border-color:#38bdf8; box-shadow:0 0 16px -4px #38bdf8; }
+
+    /* ── FLOW PANELS ── */
+    .fpanel { display: none; animation: fadeUp .25s ease; }
+    .fpanel.visible { display: block; }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+    .fp-title { font-size: 17px; font-weight: 800; margin-bottom: 24px; display:flex; align-items:center; gap:8px; }
+
+    .flow-row { display:flex; align-items:flex-start; gap:0; flex-wrap:wrap; justify-content:center; margin-bottom:24px; }
+    .fstep { display:flex; flex-direction:column; align-items:center; }
+    .fbox {
+      width:120px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:12px;
+      padding:14px 8px;
+      text-align:center;
+    }
+    .fbox .fi { font-size:22px; display:block; margin-bottom:6px; }
+    .fbox .fl { font-size:11px; font-weight:700; color:#cbd5e1; margin-bottom:3px; }
+    .fbox .fs { font-size:10px; color:#475569; line-height:1.4; }
+    .fbox.red    { border-color:#f87171; background:rgba(248,113,113,.07); }
+    .fbox.green  { border-color:#34d399; background:rgba(52,211,153,.07); }
+    .fbox.blue   { border-color:#38bdf8; background:rgba(56,189,248,.07); }
+    .fbox.yellow { border-color:#fbbf24; background:rgba(251,191,36,.07); }
+    .fbox.purple { border-color:#a78bfa; background:rgba(167,139,250,.07); }
+
+    .farrow { display:flex; align-items:center; padding:0 4px; margin-top:30px; }
+    .farrow::after { content:'→'; color:#334155; font-size:18px; }
+
+    .branch-wrap { display:flex; flex-direction:column; gap:10px; }
+    .branch-row2 { display:flex; align-items:center; gap:6px; }
+    .blabel { font-size:10px; font-weight:700; padding:2px 7px; border-radius:5px; white-space:nowrap; }
+    .byes { background:rgba(52,211,153,.15); color:#34d399; }
+    .bno  { background:rgba(248,113,113,.15); color:#f87171; }
+
+    .ex-box {
+      background:rgba(0,0,0,.3);
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:10px;
+      padding:14px 18px;
+      margin-bottom:14px;
+    }
+    .ex-box .ext { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
+    .ex-box .exl { font-size:12px; color:#94a3b8; line-height:1.9; display:flex; gap:8px; }
+
+    .log-out {
+      background:#060d18;
+      border:1px solid #1e2d40;
+      border-radius:10px;
+      padding:12px 16px;
+      font-family:'Courier New',monospace;
+      font-size:11px;
+      line-height:1.8;
+      overflow-x:auto;
+    }
+  </style>
 </head>
 <body>
 
@@ -48,6 +171,34 @@
         <p>Internal utilities for Nuclei template management, finding prioritization, and streamlining security reporting workflows.</p>
         <div class="tag-list"><span class="tag">Nuclei</span><span class="tag">Automation</span><span class="tag">Internal</span></div>
         <a class="btn secondary project-btn">Private Tool</a>
+      </div>
+
+      <!-- USB BLOCK CARD -->
+      <div class="highlight-card" style="border-color: rgba(248,113,113,0.3);">
+        <h3>🔌 Wazuh USB Block</h3>
+        <p>
+          Enterprise USB blocking system deployed across <strong>Windows, Linux &amp; macOS</strong>
+          via Wazuh SIEM agent groups. Detects unauthorized USB storage in under 0.5 seconds
+          and auto-ejects — with full JSON audit trail and zero manual steps on endpoints.
+        </p>
+        <ul style="color: var(--text-soft); margin: 12px 0; padding-left: 20px; font-size: 0.9rem; line-height: 2;">
+          <li>3 policy groups: Block · Exception · Revoke</li>
+          <li>Whitelist by Vendor ID + Product ID + Serial Number</li>
+          <li>macOS: LaunchDaemon + log stream (event-driven, like udev)</li>
+          <li>Linux: udev rules + systemd service</li>
+          <li>Windows: Registry policy + PowerShell + Scheduled Task</li>
+          <li>Every event logged to JSON for Wazuh SIEM dashboards</li>
+        </ul>
+        <div class="tag-list" style="margin-bottom: 16px;">
+          <span class="tag">Wazuh</span><span class="tag">Bash</span><span class="tag">macOS</span>
+          <span class="tag">Linux</span><span class="tag">Windows</span><span class="tag">SIEM</span><span class="tag">DLP</span>
+        </div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <button class="btn primary project-btn" onclick="openModal()" style="cursor:pointer; border:none;">
+            ▶ See How It Works
+          </button>
+          <a class="btn secondary project-btn" href="https://github.com/SharadSAT/wazuh-usb-block" target="_blank">View on GitHub</a>
+        </div>
       </div>
 
       <div class="highlight-card" style="border-color: rgba(0,229,255,0.3); grid-column: span 2;">
@@ -101,12 +252,187 @@
     <a href="https://github.com/SharadSAT" target="_blank">GitHub</a>
   </footer>
 
+  <!-- ══════════════════════════════════════════════════════════
+       USB BLOCK MODAL
+  ══════════════════════════════════════════════════════════ -->
+  <div class="modal-overlay" id="usbModal" onclick="closeOnBg(event)">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">✕ Close</button>
+
+      <div style="margin-bottom:24px;">
+        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#38bdf8;margin-bottom:8px;">Wazuh USB Block</div>
+        <div style="font-size:20px;font-weight:900;color:#f1f5f9;">Click a scenario to see the full flow</div>
+      </div>
+
+      <div class="scenario-tabs">
+        <button class="stab" id="tab-block" onclick="showTab('block')">
+          <span class="s-icon">🚫</span>
+          <div class="s-title">USB Block</div>
+        </button>
+        <button class="stab" id="tab-exception" onclick="showTab('exception')">
+          <span class="s-icon">⚙️</span>
+          <div class="s-title">USB Exception</div>
+        </button>
+        <button class="stab" id="tab-revoke" onclick="showTab('revoke')">
+          <span class="s-icon">🔓</span>
+          <div class="s-title">USB Revoke</div>
+        </button>
+        <button class="stab" id="tab-deploy" onclick="showTab('deploy')">
+          <span class="s-icon">🛡️</span>
+          <div class="s-title">How It Deploys</div>
+        </button>
+      </div>
+
+      <!-- BLOCK PANEL -->
+      <div class="fpanel" id="fp-block">
+        <div class="fp-title">🚫 <span style="color:#f87171">USB Block</span> — All unauthorized devices ejected instantly</div>
+        <div class="flow-row">
+          <div class="fstep"><div class="fbox blue"><span class="fi">🔌</span><div class="fl">USB Plugged In</div><div class="fs">Any USB storage connected</div></div></div>
+          <div class="farrow"></div>
+          <div class="fstep"><div class="fbox yellow"><span class="fi">⚡</span><div class="fl">Detected Instantly</div><div class="fs">log stream fires on disk appear event</div></div></div>
+          <div class="farrow"></div>
+          <div class="fstep"><div class="fbox"><span class="fi">🔍</span><div class="fl">Read Device ID</div><div class="fs">Vendor + Product + Serial</div></div></div>
+          <div class="farrow"></div>
+          <div class="fstep"><div class="fbox"><span class="fi">📋</span><div class="fl">Check Whitelist</div><div class="fs">IT-approved device?</div></div></div>
+          <div class="farrow"></div>
+          <div class="fstep">
+            <div class="branch-wrap">
+              <div class="branch-row2"><span class="blabel byes">✓ YES</span><div class="fbox green" style="width:110px"><span class="fi">✅</span><div class="fl">Allowed</div><div class="fs">Works + logged</div></div></div>
+              <div class="branch-row2"><span class="blabel bno">✗ NO</span><div class="fbox red" style="width:110px"><span class="fi">🚫</span><div class="fl">Ejected</div><div class="fs">diskutil eject + JSON log</div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="ex-box" style="border-left:3px solid #f87171;">
+          <div class="ext" style="color:#f87171;">📖 Real Example</div>
+          <div class="exl"><span>1️⃣</span> Employee plugs in a random USB pen drive at their Mac</div>
+          <div class="exl"><span>2️⃣</span> Daemon catches mount event via <code>log stream</code> — under 0.5 sec</div>
+          <div class="exl"><span>3️⃣</span> VID:PID:Serial checked — NOT in IT whitelist</div>
+          <div class="exl"><span>4️⃣</span> <code>diskutil eject /dev/disk2</code> — drive disappears immediately</div>
+          <div class="exl"><span>5️⃣</span> usb_blocked event sent to Wazuh SIEM as JSON</div>
+        </div>
+        <div class="log-out">
+          <span style="color:#475569">{"timestamp":"2026-04-17T10:32:11","hostname":"mac-finance-01",</span><br>
+          <span style="color:#f87171"> "event":"usb_blocked"</span><span style="color:#475569">,"reason":"USB Mass Storage",</span><br>
+          <span style="color:#475569"> "vendor":"0951","model":"1666","serial":"abc123"}</span>
+        </div>
+      </div>
+
+      <!-- EXCEPTION PANEL -->
+      <div class="fpanel" id="fp-exception">
+        <div class="fp-title">⚙️ <span style="color:#34d399">USB Exception</span> — User-specific approved devices allowed</div>
+        <div class="flow-row">
+          <div class="fstep"><div class="fbox blue"><span class="fi">👤</span><div class="fl">IT Approves</div><div class="fs">Specific device approved for a user</div></div></div>
+          <div class="farrow"></div>
+          <div class="fstep"><div class="fbox green"><span class="fi">🛡️</span><div class="fl">Wazuh Group</div><div class="fs">Agent → mac-usb-exception</div></div></div>
+          <div class="farrow"></div>
+          <div class="fstep"><div class="fbox yellow"><span class="fi">📦</span><div class="fl">Policy Deployed</div><div class="fs">exception_policy.sh with user device IDs</div></div></div>
+          <div class="farrow"></div>
+          <div class="fstep"><div class="fbox"><span class="fi">🔌</span><div class="fl">USB Plugged In</div><div class="fs">ID checked against user approved list</div></div></div>
+          <div class="farrow"></div>
+          <div class="fstep">
+            <div class="branch-wrap">
+              <div class="branch-row2"><span class="blabel byes">✓ Approved</span><div class="fbox green" style="width:110px"><span class="fi">✅</span><div class="fl">Allowed</div><div class="fs">User's device works</div></div></div>
+              <div class="branch-row2"><span class="blabel bno">✗ Unknown</span><div class="fbox red" style="width:110px"><span class="fi">🚫</span><div class="fl">Ejected</div><div class="fs">Other USB still blocked</div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="ex-box" style="border-left:3px solid #34d399;">
+          <div class="ext" style="color:#34d399;">📖 Real Example</div>
+          <div class="exl"><span>1️⃣</span> Finance team needs WD Passport backup drive — IT approves it</div>
+          <div class="exl"><span>2️⃣</span> IT moves their Mac to <code>mac-usb-exception</code> group in Wazuh</div>
+          <div class="exl"><span>3️⃣</span> WD Passport VID:PID:Serial added to ALLOWED_USB_DEVICES list</div>
+          <div class="exl"><span>4️⃣</span> WD Passport works — any other USB still gets ejected</div>
+        </div>
+        <div class="log-out">
+          <span style="color:#34d399">"event":"usb_allowed_storage"</span><span style="color:#475569">,</span><br>
+          <span style="color:#475569">"vendor":"1058","model":"2620","serial":"57583732...","bsd_name":"disk2"</span>
+        </div>
+      </div>
+
+      <!-- REVOKE PANEL -->
+      <div class="fpanel" id="fp-revoke">
+        <div class="fp-title">🔓 <span style="color:#a78bfa">USB Revoke</span> — Remove all restrictions instantly from Wazuh</div>
+        <div class="flow-row">
+          <div class="fstep"><div class="fbox purple"><span class="fi">🖥️</span><div class="fl">Wazuh Dashboard</div><div class="fs">IT moves agent to mac-usb-revoke</div></div></div>
+          <div class="farrow"></div>
+          <div class="fstep"><div class="fbox"><span class="fi">📡</span><div class="fl">Config Synced</div><div class="fs">New agent.conf pushed to Mac</div></div></div>
+          <div class="farrow"></div>
+          <div class="fstep"><div class="fbox yellow"><span class="fi">⚙️</span><div class="fl">Wodle Runs</div><div class="fs">usb_block_revoke.sh auto-executes</div></div></div>
+          <div class="farrow"></div>
+          <div class="fstep"><div class="fbox"><span class="fi">🛑</span><div class="fl">Daemon Stopped</div><div class="fs">LaunchDaemon unloaded + scripts removed</div></div></div>
+          <div class="farrow"></div>
+          <div class="fstep"><div class="fbox green"><span class="fi">✅</span><div class="fl">USB Restored</div><div class="fs">All USB works. Logs kept for audit.</div></div></div>
+        </div>
+        <div class="ex-box" style="border-left:3px solid #a78bfa;">
+          <div class="ext" style="color:#a78bfa;">📖 Real Example</div>
+          <div class="exl"><span>1️⃣</span> Employee needs USB access removed — IT changes Wazuh group</div>
+          <div class="exl"><span>2️⃣</span> Wazuh pushes revoke config → wodle auto-runs revoke script</div>
+          <div class="exl"><span>3️⃣</span> LaunchDaemon stops, all policy files deleted from Mac</div>
+          <div class="exl"><span>4️⃣</span> USB devices work normally — zero manual steps needed</div>
+        </div>
+        <div class="log-out">
+          <span style="color:#a78bfa">[OK] LaunchDaemon unloaded</span><br>
+          <span style="color:#475569">[OK] Scripts removed from /Library/Ossec/bin/</span><br>
+          <span style="color:#34d399">[OK] USB Revoke COMPLETED — devices work normally</span>
+        </div>
+      </div>
+
+      <!-- DEPLOY PANEL -->
+      <div class="fpanel" id="fp-deploy">
+        <div class="fp-title">🛡️ <span style="color:#38bdf8">How It Deploys</span> — Zero manual steps on any endpoint</div>
+        <div class="flow-row">
+          <div class="fstep"><div class="fbox blue"><span class="fi">🛡️</span><div class="fl">Wazuh Manager</div><div class="fs">IT assigns agent to group</div></div></div>
+          <div class="farrow"></div>
+          <div class="fstep"><div class="fbox"><span class="fi">📤</span><div class="fl">agent.conf Pushed</div><div class="fs">Scripts synced to endpoint</div></div></div>
+          <div class="farrow"></div>
+          <div class="fstep"><div class="fbox yellow"><span class="fi">⚙️</span><div class="fl">Wodle Executes</div><div class="fs">deploy.sh runs automatically</div></div></div>
+          <div class="farrow"></div>
+          <div class="fstep"><div class="fbox"><span class="fi">🔧</span><div class="fl">Daemon Installed</div><div class="fs">LaunchDaemon / systemd / Task started</div></div></div>
+          <div class="farrow"></div>
+          <div class="fstep"><div class="fbox green"><span class="fi">🚀</span><div class="fl">Active 24/7</div><div class="fs">Monitors USB, survives reboots</div></div></div>
+        </div>
+        <div class="ex-box" style="border-left:3px solid #38bdf8;">
+          <div class="ext" style="color:#38bdf8;">📖 Platform Comparison</div>
+          <div class="exl"><span>🍎</span> <strong>macOS:</strong> LaunchDaemon + log stream + diskutil eject (Apple Silicon)</div>
+          <div class="exl"><span>🐧</span> <strong>Linux:</strong> udev rules + systemd service + kernel USB authorization</div>
+          <div class="exl"><span>🪟</span> <strong>Windows:</strong> Registry policy + PowerShell + Scheduled Task</div>
+          <div class="exl"><span>🛡️</span> <strong>All platforms:</strong> Managed from one Wazuh dashboard — no manual endpoint work</div>
+        </div>
+        <div class="log-out">
+          <span style="color:#38bdf8">$ launchctl list | grep wazuh.usb</span><br>
+          <span style="color:#475569">-   0   com.wazuh.usb-block</span><br>
+          <span style="color:#34d399">✓ USB blocking active — protection running 24/7</span>
+        </div>
+      </div>
+
+    </div><!-- modal-box -->
+  </div><!-- modal-overlay -->
+
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    function openModal() {
+      document.getElementById('usbModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      showTab('block');
+    }
+    function closeModal() {
+      document.getElementById('usbModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function closeOnBg(e) {
+      if (e.target === document.getElementById('usbModal')) closeModal();
+    }
+    function showTab(id) {
+      document.querySelectorAll('.fpanel').forEach(p => p.classList.remove('visible'));
+      document.querySelectorAll('.stab').forEach(b => b.className = 'stab');
+      document.getElementById('fp-' + id).classList.add('visible');
+      document.getElementById('tab-' + id).classList.add('active-' + id);
+    }
   </script>
 </body>
 </html>
