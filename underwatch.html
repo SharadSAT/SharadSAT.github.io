@@ -1,0 +1,178 @@
+<title>UnderWatch — 3D Working Flow</title>
+<style>
+  :root{
+    --bg:#070a10; --panel:#111823; --panel2:#0d141d; --line:#1e2a3a;
+    --ink:#eef4fb; --text:#b9c6d6; --muted:#7b8ba0; --faint:#586a80;
+    --cyan:#28e0c4; --blue:#4d8bff; --violet:#a281ff; --amber:#ffc24d; --red:#ff5d6c;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:
+      radial-gradient(90% 60% at 50% -5%,#132033 0%,var(--bg) 60%);
+    color:var(--text);font-family:var(--sans);overflow-x:hidden}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+  .stars{position:fixed;inset:0;background-image:radial-gradient(1px 1px at 20% 30%,#2a3a52 50%,transparent),radial-gradient(1px 1px at 70% 60%,#22303f 50%,transparent),radial-gradient(1px 1px at 40% 80%,#2a3a52 50%,transparent),radial-gradient(1px 1px at 85% 20%,#22303f 50%,transparent);background-size:400px 400px;opacity:.5;pointer-events:none}
+
+  header{text-align:center;padding:54px 0 8px}
+  .kick{font-family:var(--mono);font-size:12.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--cyan);margin:0 0 14px}
+  h1{font-size:clamp(30px,6vw,52px);margin:0;color:#fff;font-weight:800;letter-spacing:-.02em;line-height:1.05;text-wrap:balance}
+  h1 .g{background:linear-gradient(90deg,var(--cyan),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lede{color:var(--muted);max-width:56ch;margin:16px auto 0;font-size:clamp(15px,2vw,18px)}
+
+  /* ---------- 3D SCENE ---------- */
+  .scene{height:560px;perspective:1300px;perspective-origin:50% 42%;margin:10px 0 0;position:relative}
+  .rig{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(9deg) rotateY(-22deg);
+    animation:sway 14s ease-in-out infinite}
+  @keyframes sway{0%,100%{transform:rotateX(9deg) rotateY(-27deg)}50%{transform:rotateX(11deg) rotateY(-14deg)}}
+
+  .layer{position:absolute;left:50%;top:50%;width:210px;margin:-64px 0 0 -105px;
+    transform:translate3d(var(--x),var(--y),var(--z));transform-style:preserve-3d}
+  .card3d{background:linear-gradient(160deg,rgba(30,44,64,.95),rgba(13,20,29,.95));
+    border:1px solid #2a3c54;border-radius:16px;padding:16px 16px 14px;text-align:center;
+    box-shadow:0 26px 50px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.02) inset;position:relative;
+    animation:float 6s ease-in-out infinite}
+  .card3d::after{content:"";position:absolute;inset:auto 12px -14px 12px;height:22px;border-radius:50%;
+    background:radial-gradient(closest-side,rgba(40,224,196,.22),transparent);transform:translateZ(-18px)}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+  .card3d .ic{font-size:30px;line-height:1}
+  .card3d .t{font-weight:800;color:#eef4fb;font-size:16px;margin-top:6px}
+  .card3d .d{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:4px}
+  .card3d .idx{position:absolute;top:-10px;left:-10px;width:26px;height:26px;border-radius:8px;background:var(--blue);
+    color:#fff;font-family:var(--mono);font-weight:700;font-size:13px;display:grid;place-items:center;box-shadow:0 6px 14px rgba(77,139,255,.5)}
+  .card3d.os{padding:10px}
+  .os-row{display:flex;gap:6px;justify-content:center;margin-top:4px}
+  .os-chip{font-size:20px}
+  .card3d.alert{border-color:#5a2733}
+  .card3d.alert .idx{background:var(--red);box-shadow:0 6px 14px rgba(255,93,108,.5)}
+  .card3d.alert{animation:float 6s ease-in-out infinite, pulse 3s ease-in-out infinite}
+  @keyframes pulse{0%,60%,100%{border-color:#5a2733}72%,86%{border-color:var(--red);box-shadow:0 26px 50px rgba(0,0,0,.6),0 0 30px rgba(255,93,108,.4)}}
+
+  /* the glowing pipeline beam behind the cards */
+  .beam{position:absolute;left:50%;top:50%;width:6px;height:6px;margin:-3px;border-radius:50%;
+    transform-style:preserve-3d}
+  .pkt{position:absolute;left:50%;top:50%;width:12px;height:12px;margin:-6px;border-radius:50%;
+    background:var(--cyan);box-shadow:0 0 16px 3px var(--cyan);
+    transform-style:preserve-3d;animation:fly 4.5s linear infinite}
+  .pkt.b{background:var(--blue);box-shadow:0 0 16px 3px var(--blue);animation-delay:1.5s}
+  .pkt.v{background:var(--violet);box-shadow:0 0 16px 3px var(--violet);animation-delay:3s}
+  @keyframes fly{
+    0%{transform:translate3d(-300px,84px,300px) scale(.6);opacity:0}
+    10%{opacity:1}
+    90%{opacity:1}
+    100%{transform:translate3d(300px,-84px,-300px) scale(1.15);opacity:0}
+  }
+  /* connecting line rendered as a long thin 3D bar */
+  .rail{position:absolute;left:50%;top:50%;width:850px;height:2px;margin:-1px 0 0 -425px;
+    background:linear-gradient(90deg,transparent,rgba(40,224,196,.5),rgba(77,139,255,.5),transparent);
+    transform:rotateY(45deg) rotateX(-9.5deg);transform-origin:center;opacity:.6}
+
+  @media(max-width:720px){.scene{height:440px;transform:scale(.72)}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important}.rig{transform:rotateX(9deg) rotateY(-20deg)}}
+
+  /* ---------- detailed flow ---------- */
+  section{padding:44px 0;border-top:1px solid var(--line)}
+  h2{font-size:clamp(22px,3.6vw,30px);color:#fff;margin:0 0 4px;font-weight:800;letter-spacing:-.01em}
+  .sec-k{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan)}
+  p{margin:12px 0}
+  strong{color:var(--ink)}
+  code{font-family:var(--mono);font-size:.85em;background:#0c141e;border:1px solid var(--line);padding:1.5px 6px;border-radius:5px;color:#d3e0ee}
+
+  .steps{counter-reset:s;list-style:none;padding:0;margin:22px 0 0;display:grid;gap:12px}
+  .steps li{counter-increment:s;position:relative;padding:16px 18px 16px 60px;background:var(--panel);border:1px solid var(--line);border-radius:13px}
+  .steps li::before{content:counter(s);position:absolute;left:16px;top:16px;width:30px;height:30px;border-radius:9px;
+    background:linear-gradient(160deg,var(--cyan),var(--blue));color:#04121a;display:grid;place-items:center;font-weight:800;font-family:var(--mono);font-size:14px}
+  .steps b{color:#fff}.steps .m{display:block;color:var(--muted);font-size:14.5px;margin-top:3px}
+
+  .term{background:#060a12;border:1px solid #1a2636;border-radius:12px;padding:16px 18px;font-family:var(--mono);font-size:13px;line-height:1.7;overflow-x:auto;margin:18px 0}
+  .term .c{color:#69d0ff}.term .g{color:#5f7086}.term .a{color:var(--amber)}.term .u{color:var(--cyan)}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+  @media(max-width:640px){.grid{grid-template-columns:1fr}}
+  .g-item{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:16px}
+  .g-item .ic{font-size:24px}.g-item b{display:block;color:#fff;margin:6px 0 2px}.g-item span{font-size:14px;color:var(--muted)}
+  footer{padding:40px 0 64px;text-align:center;color:var(--faint);font-size:14px;border-top:1px solid var(--line)}
+</style>
+
+<div class="stars"></div>
+<nav style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:13px 22px;background:rgba(7,10,16,.72);backdrop-filter:blur(10px);border-bottom:1px solid #1e2a3a">
+  <a href="index.html" style="font-weight:800;font-size:18px;color:#eef4fb;text-decoration:none;letter-spacing:-.01em">Sharad<span style="color:#28e0c4">SAT</span></a>
+  <div style="display:flex;gap:8px">
+    <a href="projects.html" style="color:#b9c6d6;text-decoration:none;font-size:14px;padding:8px 14px;border-radius:8px;border:1px solid #1e2a3a">← Projects</a>
+    <a href="https://github.com/SharadSAT/underwatch" target="_blank" style="color:#04121a;background:#28e0c4;text-decoration:none;font-size:14px;padding:8px 14px;border-radius:8px;font-weight:700">View on GitHub ↗</a>
+  </div>
+</nav>
+<div class="wrap">
+  <header>
+    <p class="kick">Endpoint Detection · Working Flow</p>
+    <h1>How <span class="g">UnderWatch</span> Works — in 3D</h1>
+    <p class="lede">Follow a single event as it travels through the system: from an action on the endpoint, all the way to an alert. Watch the data flow.</p>
+  </header>
+
+  <!-- 3D SCENE -->
+  <div class="scene">
+    <div class="rig">
+      <div class="rail"></div>
+      <!-- 5 layers receding into depth -->
+      <div class="layer" style="--x:-300px;--y:84px;--z:300px">
+        <div class="card3d os"><div class="idx">1</div><div class="ic">🖥️</div><div class="t">Endpoints</div>
+          <div class="os-row"><span class="os-chip">🐧</span><span class="os-chip">🪟</span><span class="os-chip">🍎</span></div>
+          <div class="d">an action happens</div></div>
+      </div>
+      <div class="layer" style="--x:-150px;--y:42px;--z:150px">
+        <div class="card3d"><div class="idx">2</div><div class="ic">🎥</div><div class="t">Capture</div><div class="d">native OS tools</div></div>
+      </div>
+      <div class="layer" style="--x:0;--y:0;--z:0">
+        <div class="card3d"><div class="idx">3</div><div class="ic">{ }</div><div class="t">Event</div><div class="d">structured JSON</div></div>
+      </div>
+      <div class="layer" style="--x:150px;--y:-42px;--z:-150px">
+        <div class="card3d"><div class="idx">4</div><div class="ic">🧠</div><div class="t">Detection</div><div class="d">~90 rules</div></div>
+      </div>
+      <div class="layer" style="--x:300px;--y:-84px;--z:-300px">
+        <div class="card3d alert"><div class="idx">5</div><div class="ic">🚨</div><div class="t">Alert</div><div class="d">on the dashboard</div></div>
+      </div>
+      <!-- flowing packets -->
+      <div class="pkt"></div><div class="pkt b"></div><div class="pkt v"></div>
+    </div>
+  </div>
+
+  <section style="border-top:none">
+    <p class="sec-k">The pipeline</p>
+    <h2>The five stages, in detail</h2>
+    <ol class="steps">
+      <li><b>1 · An action happens on the endpoint</b><span class="m">A file is copied to USB, a command is run, a USB is plugged in, or someone SSHes into another server.</span></li>
+      <li><b>2 · A capture script notices it — using native tools only</b><span class="m">Linux: <code>auditd</code> + <code>fanotify</code>. Windows: the event log + a keystroke reader. macOS: the unified log + the <code>script</code> recorder. Nothing is installed.</span></li>
+      <li><b>3 · It becomes one structured event</b><span class="m">A single JSON line written to a local log — e.g. <code>{"type":"file_upload","name":"report.xlsx","dest":"drive.google.com"}</code>.</span></li>
+      <li><b>4 · The detection engine matches a rule</b><span class="m">The Wazuh agent forwards the event; on the server ~90 rules decide if it's risky.</span></li>
+      <li><b>5 · An alert appears</b><span class="m">"Sensitive file uploaded to drive.google.com" lands on the dashboard — with the user, file, and time.</span></li>
+    </ol>
+  </section>
+
+  <section>
+    <p class="sec-k">The hard part</p>
+    <h2>Capturing commands typed on another server</h2>
+    <p>When someone runs <code>ssh admin@host</code> and types commands <em>there</em>, we still capture every command — by wrapping <code>ssh</code> on the <strong>source</strong> machine and recording the whole session with the native <code>script</code> tool. It works <strong>even if the remote server has no monitoring at all.</strong></p>
+    <div class="term">
+      <span class="c">$</span> <span class="u">ssh admin@host</span><br>
+      <span class="c">admin@host:~$</span> whoami        <span class="g">→ remote command detected</span><br>
+      <span class="c">admin@host:~$</span> sudo su        <span class="g">→ remote command detected</span><br>
+      <span class="c">root@host:~#</span> cat /etc/passwd  <span class="g">→ remote command (as root)</span><br>
+      <span class="c">root@host:~#</span> rm -rf /var/log/* <span class="a">→ ⚠ DANGEROUS remote command</span><br>
+    </div>
+    <p>Because the recording captures the prompt changing from <code>admin@</code> to <code>root@</code>, it even shows <strong>whether each command ran as a normal user or as root.</strong></p>
+  </section>
+
+  <section>
+    <p class="sec-k">One engine, three platforms</p>
+    <h2>What it detects</h2>
+    <div class="grid">
+      <div class="g-item"><div class="ic">📄</div><b>Data movement</b><span>Files to USB, downloads, and real uploads — with the file name &amp; destination.</span></div>
+      <div class="g-item"><div class="ic">⌨️</div><b>Keystrokes &amp; clipboard</b><span>What's typed, including sensitive data and passwords.</span></div>
+      <div class="g-item"><div class="ic">🌐</div><b>Remote &amp; admin commands</b><span>Local admin commands and everything typed on other servers.</span></div>
+      <div class="g-item"><div class="ic">🧬</div><b>Persistence</b><span>Startup items, scheduled tasks, services — how attackers survive reboots.</span></div>
+      <div class="g-item"><div class="ic">🔓</div><b>Privilege &amp; accounts</b><span>New accounts, admin-group changes, escalation.</span></div>
+      <div class="g-item"><div class="ic">🛡️</div><b>Tampering</b><span>Attempts to stop or remove the security tooling.</span></div>
+    </div>
+    <p style="margin-top:22px;text-align:center;color:var(--muted)">~90 detections · Linux · Windows · macOS · <strong style="color:var(--ink)">nothing installed on the endpoint.</strong></p>
+  </section>
+</div>
+<footer>UnderWatch — cross-platform endpoint monitoring &amp; detection · built on native OS tools</footer>
