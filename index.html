@@ -252,8 +252,8 @@ body.touring .float-tour{display:none}
   <div class="sh rv"><div class="k">// whoami</div><h2>About Me</h2></div>
   <div class="about-grid">
    <div class="rv">
-    <p>I'm a <span class="hl">Security Analyst</span> and <span class="hl">SOC Specialist</span> focused on offensive security, blue-team operations, and security automation. I find what's broken — then I build tools so it doesn't break again.</p>
-    <p>My work spans <span class="hl">web, network, API and cloud penetration testing</span>, SOC engineering, threat hunting and incident response. When a workflow is repetitive, I automate it end-to-end.</p>
+    <p>I'm a <span class="hl">Security Analyst</span> and <span class="hl">SOC Specialist</span> focused on offensive security and security automation. I find what's broken — then I build tools so it doesn't break again.</p>
+    <p>My work spans <span class="hl">SOC engineering</span>, threat hunting and incident response. When a workflow is repetitive, I automate it end-to-end.</p>
     <p>I've shipped a full <span class="hl">AI-powered security automation platform (HexaVault)</span>, an automated <span class="hl">vulnerability patch pipeline</span>, USB-control and endpoint-monitoring tooling — all built for real-world cyber defense.</p>
    </div>
    <div class="id-card rv" data-tour>
@@ -273,7 +273,7 @@ body.touring .float-tour{display:none}
   <div class="skills-grid">
    <div class="skill rv" data-tour><h4><span class="ico">🗡️</span>Offensive Tools</h4><ul>
      <li>Burp Suite</li><li>nmap</li><li>nuclei</li><li>sqlmap</li><li>Metasploit</li><li>ffuf</li><li>wpscan</li><li>dalfox</li></ul></div>
-   <div class="skill rv"><h4><span class="ico">🛡️</span>Blue Team / SOC</h4><ul>
+   <div class="skill rv"><h4><span class="ico">🛡️</span>SOC</h4><ul>
      <li>SIEM &amp; SOAR</li><li>EDR / XDR</li><li>Threat Hunting</li><li>Incident Response</li><li>Log Analysis</li></ul></div>
    <div class="skill rv"><h4><span class="ico">⚙️</span>Automation</h4><ul>
      <li>Python</li><li>Bash</li><li>Ansible</li><li>Docker</li><li>Flask</li><li>PostgreSQL</li><li>Celery</li></ul></div>
@@ -478,7 +478,7 @@ document.querySelectorAll('section[id],header[id]').forEach(s=>spy.observe(s));
 /* ===== GUIDED WALKTHROUGH (Auto + Manual) ===== */
 const STEPS=[
  {sel:'#home',k:'Welcome',t:"Welcome! 👋",d:"Hey, I'm your security guide. Let me walk you through Sharad's complete arsenal — every tool, one at a time. Hit Continue whenever you're ready."},
- {sel:'#about [data-tour]',k:'About',t:'Who is Sharad?',d:'A Security Analyst & SOC Specialist — offensive security, blue-team SOC work, and security automation. He finds what is broken, then builds tools so it stays fixed.'},
+ {sel:'#about [data-tour]',k:'About',t:'Who is Sharad?',d:'A Security Analyst & SOC Specialist — offensive security, SOC work, and security automation. He finds what is broken, then builds tools so it stays fixed.'},
  {sel:'#skills [data-tour]',k:'Arsenal',t:'The Toolkit',d:'Hands-on with Burp, nmap, nuclei and sqlmap on offense — SIEM/SOAR, EDR/XDR and threat hunting on defense — Python, Ansible & Docker for automation.'},
  {sel:'.learn',k:'Learning',t:'Currently Upskilling 📚',d:'Right now Sharad is leveling up on the Microsoft security stack — Defender XDR (MDE, MDI, MDO, MDCA), Microsoft Sentinel and Intune.'},
  {sel:'#projects .proj:nth-child(1)',k:'Project 1',t:'Automated Patch Pipeline',d:'Hands-free weekly patching of Critical vulnerabilities — no reboots, self-healing, full per-host report. This one is open-source on GitHub.'},
