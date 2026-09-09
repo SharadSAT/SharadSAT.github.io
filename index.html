@@ -81,7 +81,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(14px);
 .id-row:last-child{border:none}
 .id-row span{color:var(--mut2)} .id-row b{color:var(--txt);font-weight:600}
 
-.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .skill{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;transition:.25s}
 .skill:hover{transform:translateY(-4px);border-color:var(--cyan);box-shadow:var(--glow)}
 .skill h4{font-size:1.05rem;margin-bottom:12px;display:flex;align-items:center;gap:9px}
@@ -260,7 +260,6 @@ body.touring .float-tour{display:none}
      <div class="avatar">S</div>
      <div class="id-row"><span>Role</span><b>Security Analyst</b></div>
      <div class="id-row"><span>Focus</span><b>SOC · Offensive Sec</b></div>
-     <div class="id-row"><span>Blue Team</span><b>SOC · XDR · IR</b></div>
      <div class="id-row"><span>Builds</span><b>Automation &amp; Tools</b></div>
      <div class="id-row"><span>Status</span><b style="color:var(--green)">● Open to work</b></div>
    </div>
@@ -272,14 +271,12 @@ body.touring .float-tour{display:none}
  <div class="wrap">
   <div class="sh rv"><div class="k">// arsenal</div><h2>Skills &amp; Arsenal</h2><p>The toolkit I use across offensive, defensive and automation work.</p></div>
   <div class="skills-grid">
-   <div class="skill rv" data-tour><h4><span class="ico">🗡️</span>Offensive</h4><ul>
+   <div class="skill rv" data-tour><h4><span class="ico">🗡️</span>Offensive Tools</h4><ul>
      <li>Burp Suite</li><li>nmap</li><li>nuclei</li><li>sqlmap</li><li>Metasploit</li><li>ffuf</li><li>wpscan</li><li>dalfox</li></ul></div>
    <div class="skill rv"><h4><span class="ico">🛡️</span>Blue Team / SOC</h4><ul>
      <li>SIEM &amp; SOAR</li><li>EDR / XDR</li><li>Threat Hunting</li><li>Incident Response</li><li>Log Analysis</li></ul></div>
    <div class="skill rv"><h4><span class="ico">⚙️</span>Automation</h4><ul>
      <li>Python</li><li>Bash</li><li>Ansible</li><li>Docker</li><li>Flask</li><li>PostgreSQL</li><li>Celery</li></ul></div>
-   <div class="skill rv"><h4><span class="ico">🎯</span>Domains</h4><ul>
-     <li>Web Pentest</li><li>Network</li><li>API</li><li>Cloud</li></ul></div>
   </div>
 
   <div class="learn rv" data-tour>
@@ -305,14 +302,6 @@ body.touring .float-tour{display:none}
  <div class="wrap">
   <div class="sh rv"><div class="k">// portfolio</div><h2>Security Tools &amp; Projects</h2><p>Production-grade tools I designed and built — covering offense, defense and automation.</p></div>
   <div class="proj-grid">
-
-   <div class="proj flag rv" data-tour>
-    <div class="proj-top"><div class="proj-ico">🛡️</div><span class="badge star">⭐ Flagship</span></div>
-    <h3>HexaVault <span class="badge prv">🔒 Private</span></h3>
-    <p>An AI-powered security automation platform with <b style="color:var(--cyan)">22 integrated scanning modules</b>. Point it at a target, pick modules, and get a unified findings dashboard, AI-assisted analysis, automated exploitation and professional reports — all from one web interface.</p>
-    <div class="tags"><span>Python</span><span>Flask</span><span>Docker</span><span>PostgreSQL</span><span>Celery</span><span>AI Co-pilot</span><span>22 Modules</span></div>
-    <div class="proj-links"><span class="plink lock">🔒 Private repo · Demo on request</span></div>
-   </div>
 
    <div class="proj rv" data-tour>
     <div class="proj-top"><div class="proj-ico">🔄</div><span class="badge pub">● Public</span></div>
@@ -352,6 +341,14 @@ body.touring .float-tour{display:none}
     <p>A <b style="color:var(--cyan)">cross-platform endpoint threat-detection</b> layer for Windows, Linux &amp; macOS — built on native OS tools, nothing installed. ~90 detections, including a client-side SSH session recorder that captures commands typed on remote servers, even root commands after sudo su.</p>
     <div class="tags"><span>Linux</span><span>Windows</span><span>macOS</span><span>Wazuh</span><span>auditd</span><span>EDR</span><span>Detection</span></div>
     <div class="proj-links"><a class="plink git" href="underwatch.html">▶ See the 3D Flow</a> <a class="plink git" href="https://github.com/SharadSAT/underwatch" target="_blank" rel="noopener">⌥ View on GitHub ↗</a></div>
+   </div>
+
+   <div class="proj flag rv" data-tour>
+    <div class="proj-top"><div class="proj-ico">🛡️</div><span class="badge star">⭐ Flagship</span></div>
+    <h3>HexaVault <span class="badge prv">🔒 Private</span></h3>
+    <p>An AI-powered security automation platform with <b style="color:var(--cyan)">22 integrated scanning modules</b>. Point it at a target, pick modules, and get a unified findings dashboard, AI-assisted analysis, automated exploitation and professional reports — all from one web interface.</p>
+    <div class="tags"><span>Python</span><span>Flask</span><span>Docker</span><span>PostgreSQL</span><span>Celery</span><span>AI Co-pilot</span><span>22 Modules</span></div>
+    <div class="proj-links"><span class="plink lock">🔒 Private repo · Demo on request</span></div>
    </div>
 
   </div>
@@ -484,11 +481,11 @@ const STEPS=[
  {sel:'#about [data-tour]',k:'About',t:'Who is Sharad?',d:'A Security Analyst & SOC Specialist — offensive security, blue-team SOC work, and security automation. He finds what is broken, then builds tools so it stays fixed.'},
  {sel:'#skills [data-tour]',k:'Arsenal',t:'The Toolkit',d:'Hands-on with Burp, nmap, nuclei and sqlmap on offense — SIEM/SOAR, EDR/XDR and threat hunting on defense — Python, Ansible & Docker for automation.'},
  {sel:'.learn',k:'Learning',t:'Currently Upskilling 📚',d:'Right now Sharad is leveling up on the Microsoft security stack — Defender XDR (MDE, MDI, MDO, MDCA), Microsoft Sentinel and Intune.'},
- {sel:'.proj.flag',k:'Project 1',t:'HexaVault 🛡️',d:'The flagship: an AI-powered security automation platform with 22 modules. One target, one click — unified findings, AI analysis, automated exploitation and professional reports.'},
- {sel:'#projects .proj:nth-child(2)',k:'Project 2',t:'Automated Patch Pipeline',d:'Hands-free weekly patching of Critical vulnerabilities — no reboots, self-healing, full per-host report. This one is open-source on GitHub.'},
- {sel:'#projects .proj:nth-child(3)',k:'Project 3',t:'USB Device Control',d:'Enterprise USB / removable-storage blocking across Windows, Linux and macOS via SIEM, with real-time plug-in alerting.'},
- {sel:'#projects .proj:nth-child(4)',k:'Project 4',t:'User Activity Monitor',d:'Endpoint user-activity monitoring & logging — visibility for insider-threat detection and audit trails.'},
- {sel:'#projects .proj:nth-child(5)',k:'Project 5',t:'Browser Security Monitor',d:'Tracks browser file uploads, downloads and browsing activity on Chrome & Firefox via native-host logging. Open-source too.'},
+ {sel:'#projects .proj:nth-child(1)',k:'Project 1',t:'Automated Patch Pipeline',d:'Hands-free weekly patching of Critical vulnerabilities — no reboots, self-healing, full per-host report. This one is open-source on GitHub.'},
+ {sel:'#projects .proj:nth-child(2)',k:'Project 2',t:'USB Device Control',d:'Enterprise USB / removable-storage blocking across Windows, Linux and macOS via SIEM, with real-time plug-in alerting.'},
+ {sel:'#projects .proj:nth-child(3)',k:'Project 3',t:'User Activity Monitor',d:'Endpoint user-activity monitoring & logging — visibility for insider-threat detection and audit trails.'},
+ {sel:'#projects .proj:nth-child(4)',k:'Project 4',t:'Browser Security Monitor',d:'Tracks browser file uploads, downloads and browsing activity on Chrome & Firefox via native-host logging. Open-source too.'},
+ {sel:'.proj.flag',k:'Project 5',t:'HexaVault 🛡️',d:'The flagship: an AI-powered security automation platform with 22 modules. One target, one click — unified findings, AI analysis, automated exploitation and professional reports.'},
  {sel:'#labs [data-tour]',k:'Labs',t:'22 Module Arsenal',d:'These 22 scanning & exploitation modules power HexaVault — recon, web, injection, secrets, cloud and automated exploitation.'},
  {sel:'#contact [data-tour]',k:'Connect',t:'Get in Touch',d:"That's the full tour! If you liked what you saw, connect with Sharad here — GitHub, LinkedIn or email. Thanks for watching! 👋"}
 ];
