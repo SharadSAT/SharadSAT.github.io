@@ -225,7 +225,6 @@ body.touring .float-tour{display:none}
      <a href="#skills">Skills</a>
      <a href="#projects">Projects</a>
      <a href="#labs">Labs</a>
-     <a href="#dashboard">Dashboard</a>
      <a href="#contact">Contact</a>
      <a href="https://github.com/SharadSAT" target="_blank" rel="noopener" class="nav-cta">GitHub ↗</a>
    </div>
@@ -391,25 +390,6 @@ body.touring .float-tour{display:none}
  </div>
 </section>
 
-<section id="dashboard">
- <div class="wrap">
-  <div class="sh rv"><div class="k">// metrics</div><h2>Security Dashboard</h2><p>A snapshot of what I've built and where I'm strong.</p></div>
-  <div class="stat-row">
-    <div class="stat rv" data-tour><div class="n" data-count="5">0</div><div class="l">Security Tools Built</div></div>
-    <div class="stat rv"><div class="n" data-count="22">0</div><div class="l">HexaVault Modules</div></div>
-    <div class="stat rv"><div class="n" data-count="10">0</div><div class="l">OWASP Top 10 Covered</div></div>
-    <div class="stat rv"><div class="n" data-count="3">0</div><div class="l">OS Platforms Supported</div></div>
-  </div>
-  <div class="bars rv">
-    <div class="bar"><div class="top"><span>Web Application Pentesting</span><b>90%</b></div><div class="track"><i class="fill" data-w="90"></i></div></div>
-    <div class="bar"><div class="top"><span>Security Automation (Python / Ansible)</span><b>92%</b></div><div class="track"><i class="fill" data-w="92"></i></div></div>
-    <div class="bar"><div class="top"><span>Network &amp; Infra Pentesting</span><b>85%</b></div><div class="track"><i class="fill" data-w="85"></i></div></div>
-    <div class="bar"><div class="top"><span>SOC / SIEM &amp; Threat Hunting</span><b>85%</b></div><div class="track"><i class="fill" data-w="85"></i></div></div>
-    <div class="bar"><div class="top"><span>Microsoft Defender / Sentinel (learning)</span><b>60%</b></div><div class="track"><i class="fill" data-w="60"></i></div></div>
-  </div>
- </div>
-</section>
-
 <section id="contact">
  <div class="wrap">
   <div class="contact-box rv" data-tour>
@@ -500,14 +480,6 @@ const spy=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){
   navA.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));}}),{rootMargin:'-45% 0px -50% 0px'});
 document.querySelectorAll('section[id],header[id]').forEach(s=>spy.observe(s));
 
-let dashDone=false;
-const dashIO=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting&&!dashDone){dashDone=true;
-  document.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.w+'%');
-  document.querySelectorAll('[data-count]').forEach(c=>{const t=+c.dataset.count;let n=0;
-    const st=setInterval(()=>{n+=Math.ceil(t/30);if(n>=t){n=t;clearInterval(st);}c.textContent=n;},35);});
-}}),{threshold:.3});
-dashIO.observe(document.getElementById('dashboard'));
-
 /* ===== GUIDED WALKTHROUGH (Auto + Manual) ===== */
 const STEPS=[
  {sel:'#home',k:'Welcome',t:"Welcome! 👋",d:"Hey, I'm your security guide. Let me walk you through Sharad's complete arsenal — every tool, one at a time. Hit Continue whenever you're ready."},
@@ -520,7 +492,6 @@ const STEPS=[
  {sel:'#projects .proj:nth-child(4)',k:'Project 4',t:'User Activity Monitor',d:'Endpoint user-activity monitoring & logging — visibility for insider-threat detection and audit trails.'},
  {sel:'#projects .proj:nth-child(5)',k:'Project 5',t:'Browser Security Monitor',d:'Tracks browser file uploads, downloads and browsing activity on Chrome & Firefox via native-host logging. Open-source too.'},
  {sel:'#labs [data-tour]',k:'Labs',t:'22 Module Arsenal',d:'These 22 scanning & exploitation modules power HexaVault — recon, web, injection, secrets, cloud and automated exploitation.'},
- {sel:'#dashboard [data-tour]',k:'Metrics',t:'By the Numbers',d:'5 security tools built, 22 HexaVault modules, full OWASP Top 10 coverage across 3 operating systems — with skill levels mapped below.'},
  {sel:'#contact [data-tour]',k:'Connect',t:'Get in Touch',d:"That's the full tour! If you liked what you saw, connect with Sharad here — GitHub, LinkedIn or email. Thanks for watching! 👋"}
 ];
 
