@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SharadSAT | Security Analyst &amp; VAPT Specialist</title>
-<meta name="description" content="Sharad — Security Analyst, VAPT Specialist & Automation Developer. Builder of HexaVault, automated patch pipeline, and more security tooling." />
+<title>SharadSAT | Security Analyst &amp; SOC</title>
+<meta name="description" content="Sharad — Security Analyst, SOC & Automation Developer. Builder of HexaVault, automated patch pipeline, and more security tooling." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -235,10 +235,10 @@ body.touring .float-tour{display:none}
 
 <header class="hero" id="home">
  <div class="wrap">
-   <span class="tag rv">▸ Security Analyst &amp; VAPT Specialist</span>
+   <span class="tag rv">▸ Security Analyst &amp; SOC</span>
    <h1 class="rv">Hello, I'm <span class="grad">Sharad</span></h1>
    <div class="role mono rv" id="role"><span class="cur"></span><span class="blink">_</span></div>
-   <p class="lead rv">I help organizations secure their infrastructure through <b style="color:var(--txt)">VAPT, threat hunting, SOC engineering</b>, and custom-built automation tools for real-world cyber defense.</p>
+   <p class="lead rv">I help organizations secure their infrastructure through <b style="color:var(--txt)">SOC engineering, threat hunting</b>, and custom-built automation tools for real-world cyber defense.</p>
    <div class="cta-row rv">
      <a href="#projects" class="btn primary">⚡ Explore My Tools</a>
      <button class="btn play" id="startTour">▶ Guided Walkthrough</button>
@@ -253,14 +253,14 @@ body.touring .float-tour{display:none}
   <div class="sh rv"><div class="k">// whoami</div><h2>About Me</h2></div>
   <div class="about-grid">
    <div class="rv">
-    <p>I'm a <span class="hl">Security Analyst</span> and <span class="hl">VAPT Specialist</span> focused on offensive security, blue-team operations, and security automation. I find what's broken — then I build tools so it doesn't break again.</p>
+    <p>I'm a <span class="hl">Security Analyst</span> and <span class="hl">SOC Specialist</span> focused on offensive security, blue-team operations, and security automation. I find what's broken — then I build tools so it doesn't break again.</p>
     <p>My work spans <span class="hl">web, network, API and cloud penetration testing</span>, SOC engineering, threat hunting and incident response. When a workflow is repetitive, I automate it end-to-end.</p>
     <p>I've shipped a full <span class="hl">AI-powered VAPT platform (HexaVault)</span>, an automated <span class="hl">vulnerability patch pipeline</span>, USB-control and endpoint-monitoring tooling — all built for real-world cyber defense.</p>
    </div>
    <div class="id-card rv" data-tour>
      <div class="avatar">S</div>
      <div class="id-row"><span>Role</span><b>Security Analyst</b></div>
-     <div class="id-row"><span>Focus</span><b>VAPT · Offensive Sec</b></div>
+     <div class="id-row"><span>Focus</span><b>SOC · Offensive Sec</b></div>
      <div class="id-row"><span>Blue Team</span><b>SOC · XDR · IR</b></div>
      <div class="id-row"><span>Builds</span><b>Automation &amp; Tools</b></div>
      <div class="id-row"><span>Status</span><b style="color:var(--green)">● Open to work</b></div>
@@ -415,7 +415,7 @@ body.touring .float-tour{display:none}
   <div class="contact-box rv" data-tour>
     <div class="k mono" style="color:var(--cyan);letter-spacing:3px;font-weight:700;font-size:.8rem">// get in touch</div>
     <h2 style="margin-top:10px">Let's secure something together</h2>
-    <p>Open to security roles, VAPT engagements, collaborations and demos of my private tools. Reach out 👇</p>
+    <p>Open to security roles, SOC engagements, collaborations and demos of my private tools. Reach out 👇</p>
     <div class="contact-links">
       <a class="btn primary" href="https://github.com/SharadSAT" target="_blank" rel="noopener">⌥ GitHub</a>
       <!-- TODO: apna LinkedIn URL daalo -->
@@ -427,7 +427,7 @@ body.touring .float-tour{display:none}
  </div>
 </section>
 
-<footer><div class="wrap">© <span id="yr"></span> Sharad · Security Analyst &amp; VAPT Specialist · Built with 🛡️ &amp; ☕</div></footer>
+<footer><div class="wrap">© <span id="yr"></span> Sharad · Security Analyst &amp; SOC · Built with 🛡️ &amp; ☕</div></footer>
 
 <button class="float-tour" id="floatTour">▶ Take the Tour</button>
 
@@ -486,7 +486,7 @@ const burger=document.getElementById('burger'),navlinks=document.getElementById(
 burger.addEventListener('click',()=>navlinks.classList.toggle('open'));
 navlinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navlinks.classList.remove('open')));
 
-const roles=['SOC Analyst','VAPT Specialist','Offensive Security','Automation Developer','Threat Hunter'];
+const roles=['SOC Analyst','Offensive Security','Automation Developer','Threat Hunter'];
 const cur=document.querySelector('#role .cur');let ri=0,ci=0,del=false;
 (function type(){const w=roles[ri];cur.textContent=del?w.slice(0,ci--):w.slice(0,ci++);
   let s=del?45:90;if(!del&&ci===w.length+1){del=true;s=1400;}else if(del&&ci===0){del=false;ri=(ri+1)%roles.length;s=300;}
@@ -511,7 +511,7 @@ dashIO.observe(document.getElementById('dashboard'));
 /* ===== GUIDED WALKTHROUGH (Auto + Manual) ===== */
 const STEPS=[
  {sel:'#home',k:'Welcome',t:"Welcome! 👋",d:"Hey, I'm your security guide. Let me walk you through Sharad's complete arsenal — every tool, one at a time. Hit Continue whenever you're ready."},
- {sel:'#about [data-tour]',k:'About',t:'Who is Sharad?',d:'A Security Analyst & VAPT Specialist — offensive security, blue-team SOC work, and security automation. He finds what is broken, then builds tools so it stays fixed.'},
+ {sel:'#about [data-tour]',k:'About',t:'Who is Sharad?',d:'A Security Analyst & SOC Specialist — offensive security, blue-team SOC work, and security automation. He finds what is broken, then builds tools so it stays fixed.'},
  {sel:'#skills [data-tour]',k:'Arsenal',t:'The Toolkit',d:'Hands-on with Burp, nmap, nuclei and sqlmap on offense — SIEM/SOAR, EDR/XDR and threat hunting on defense — Python, Ansible & Docker for automation.'},
  {sel:'.learn',k:'Learning',t:'Currently Upskilling 📚',d:'Right now Sharad is leveling up on the Microsoft security stack — Defender XDR (MDE, MDI, MDO, MDCA), Microsoft Sentinel and Intune.'},
  {sel:'.proj.flag',k:'Project 1',t:'HexaVault 🛡️',d:'The flagship: an AI-powered VAPT platform with 22 modules. One target, one click — unified findings, AI analysis, automated exploitation and professional reports.'},
